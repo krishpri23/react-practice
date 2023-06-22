@@ -1,34 +1,77 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
-  font-synthesis: none;
+
+/*preset*/
+
+* {
+  box-sizing: border-box;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  font-kerning: auto;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+body,h1,h2,h3 {
   margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: Raleway;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 20px;
+  --placeholder-color: #CED3DF;
+  --button-color: #5732F9;
+  --secondary-text: white;
+  --sub-text:rgb(131, 128, 128);
+
+  
+  
+}
+
+/* Login & Signup */
+.logo-image {
+  width: 180px;
+  height: 60px;
+
+}
+
+.login-form, .create-account, .form-control, .signup {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  
+}
+
+.login-form, .create-account {
+  max-width: 400px;
+  margin-left: 3rem;
+}
+
+.signup {
+  max-width: 400px;
+  margin: 2rem;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight:600;
+  margin: 0.5rem 0.2rem;
+  
+}
+
+input {
+  font-size: 0.65rem;
+  padding: 0.62rem 4.3rem 0.62rem 0.6rem ;
+  border: 1px solid var(--placeholder-color);
+   border-radius: 0.25rem;
+  text-align: left;
+  margin-bottom: 0.8rem;
+}
+
+::placeholder {
+  color: var(--placeholder-color);
 }
 
 h1 {
@@ -39,31 +82,83 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: 0.62rem 4.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-color);
+  margin-top: 1.25rem;
+  color: var(--secondary-text);
+  text-transform: uppercase;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+ 
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+p {
+  font-size: 0.7rem;
+  text-align: center;
+  color: var(--sub-text);
+  font-weight: 700;
 }
+a {
+  color:var(--button-color);
+}
+
+.forgot-password {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-align: right;
+}
+
+.error {
+  color:red;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Create account */
+
+
+.create-account {
+  margin-top: 4rem;
+}
+.create-user, .create-provider {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--placeholder-color);
+  border-radius: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 2rem; 
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.create-user:hover, .create-provider:hover  {
+  border: 2px solid var(--button-color) ;
+}
+
+#create-btn {
+width: 100%;
+}
+
+
+h2 {
+  font-size: 1.2rem;
+}
+h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+ 
+}
+
+h1 {
+  font-size: 0.6rem;
+  color: var(--sub-text);
+  font-weight: 500;
+  
+}
+
+img {
+  display: inline-block;
+}
+
