@@ -26,9 +26,6 @@ body,h1,h2,h3 {
   --button-color: #5732F9;
   --secondary-text: white;
   --sub-text:rgb(131, 128, 128);
-
-  
-  
 }
 
 /* Login & Signup */
@@ -38,7 +35,7 @@ body,h1,h2,h3 {
 
 }
 
-.login-form, .create-account, .form-control, .signup {
+.login-form, .create-account, .form-control, .form-group{
   display: flex;
   flex-direction: column;
   
@@ -51,7 +48,7 @@ body,h1,h2,h3 {
 
 .signup {
   max-width: 400px;
-  margin: 2rem;
+  margin: 2rem auto ;
 }
 
 label {
@@ -102,6 +99,13 @@ p {
 }
 a {
   color:var(--button-color);
+  cursor: pointer;
+}
+
+.terms {
+  font-size: 0.5rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
 
 .forgot-password {

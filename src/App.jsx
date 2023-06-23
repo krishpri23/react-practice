@@ -1,9 +1,10 @@
 
 import './App.css'
-import UserSignup from './components/userSignup'
+// import ProviderSignup from './components/providerSignup'
+// import UserSignup from './components/userSignup'
 // import CreateAccount from './components/createAccount'
 
-// import Login from './components/login'
+import Login from './components/login'
 
 
 function App() {
@@ -11,9 +12,10 @@ function App() {
   return (
 
     <div className='App'>
-      {/* <Login /> */}
+      <Login />
       {/* <CreateAccount /> */}
-      <UserSignup />
+      {/* <UserSignup /> */}
+      {/* <ProviderSignup /> */}
     </div>
 
   )
