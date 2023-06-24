@@ -31,7 +31,7 @@ function ProviderSignup() {
 
     return (
         <div className="signup">
-            <h2> Provider Signup</h2>
+
             <Formik
                 initialValues={initialValues}
                 onSubmit={onSubmit}
@@ -41,11 +41,11 @@ function ProviderSignup() {
                         console.log(formik.isValid);
                         return (
                             <Form className="form-group">
-                                <div className="form-control">
+                                {/* <div className="form-control">
                                     <label htmlFor="type">Account / Provider type </label>
                                     <Field as="radio"> Business </Field>
                                     <Field as="radio"> Individual</Field>
-                                </div>
+                                </div> */}
 
                                 <div className="form-control">
                                     <label htmlFor="name" >Full Name</label>
@@ -133,14 +133,14 @@ function ProviderSignup() {
                                     ></Field>
                                 </div>
 
-                                <div className="form-control">
+                                {/* <div className="form-control">
                                     <label htmlFor="country">Country</label>
                                     <Field
                                         as="dropdown"
                                         id="country"
                                         name="country"
                                     ></Field>
-                                </div>
+                                </div> */}
 
                                 <div className="form-control">
                                     <label htmlFor="state">State</label>
@@ -158,28 +158,24 @@ function ProviderSignup() {
                                     ></Field>
                                 </div>
 
-                                <div className="form-control">
+                                {/* <div className="form-control">
                                     <label htmlFor="category">Category</label>
                                     <Field
                                         as="dropdown"
                                         id="category"
                                         name="category"
                                     ></Field>
-                                </div>
+                                </div> */}
 
 
-                                <div className="form-control">
+                                {/* <div className="form-control">
                                     <Field
                                         as="checkbox"
                                         className="terms"
                                         id="terms-condition"
                                         name="terms-condition"
                                     > By creating an account, you agree to our Terms and Conditions, Privacy Policy and Cookies Policy</Field>
-                                </div>
-                                <a className="forgot-password">Forgot Password?</a>
-                                <button type="submit" disabled={!(formik.dirty && formik.isValid) && formik.isSubmitting} > Sign up </button>
-
-                                <p> Have an account already? <a href="" target="_blank"> Sign in </a> </p>
+                                </div> */}
 
                             </Form >
                         )

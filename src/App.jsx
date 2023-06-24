@@ -1,10 +1,12 @@
 
 import './App.css'
-// import ProviderSignup from './components/providerSignup'
-// import UserSignup from './components/userSignup'
-// import CreateAccount from './components/createAccount'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Login from './components/Login.jsx'
+import CreateAccount from './components/CreateAccount';
+// import UserSignup from './components/userSignup';
+import ProviderSignup from './components/providerSignup';
+import UserSignup from './components/userSignup';
 
-import Login from './components/login'
 
 
 function App() {
@@ -12,10 +14,17 @@ function App() {
   return (
 
     <div className='App'>
-      <Login />
-      {/* <CreateAccount /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Login />} />
+          <Route path='create' element={<CreateAccount />} />
+          <Route path='user' element={<UserSignup />} />
+          <Route path='provider' element={<ProviderSignup />} />
+          <Route />
+        </Routes>
+      </BrowserRouter>
+
       {/* <UserSignup /> */}
-      {/* <ProviderSignup /> */}
     </div>
 
   )

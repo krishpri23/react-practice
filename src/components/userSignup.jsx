@@ -27,26 +27,24 @@ function UserSignup() {
         contactNumber: Yup.string().matches(phoneRegExp, " Phone number is not valid")
     })
     return (
-        <div className=" signup" >
-            <h2> User Signup</h2>
+        <div className=" user-signup" >
             <Formik
                 initialValues={initialValues}
                 onSubmit={onSubmit}
                 validationSchema={validationSchema}>
-                <Form>
-                    <div className="form-control">
-                        <label htmlFor="name" >Full Name</label>
-                        <Field
-                            placeholder=" please enter your name"
-                            id=" name"
-                            name=" name"
-                        />
-                        <ErrorMessage name=" name" >
-                            {
-                                (ErrorMessage) => <div className="error">{ErrorMessage}</div>
-                            }
-                        </ErrorMessage>
-                    </div>
+                <Form>                    <div className="form-control">
+                    <label htmlFor="name" >Full Name</label>
+                    <Field
+                        placeholder=" please enter your name"
+                        id=" name"
+                        name=" name"
+                    />
+                    <ErrorMessage name=" name" >
+                        {
+                            (ErrorMessage) => <div className="error">{ErrorMessage}</div>
+                        }
+                    </ErrorMessage>
+                </div>
 
                     <div className="form-control">
                         <label htmlFor="email">Email Address</label>
@@ -103,18 +101,15 @@ function UserSignup() {
                         </ErrorMessage>
                     </div>
                     <div className="form-control">
-                        <Field
-                            as=" checkbox"
+                        {/* <Field
+                            type=" checkbox"
                             className=" terms"
-                        > By creating an account, you agree to our Terms and Conditions, Privacy Policy and Cookies Policy</Field>
+                        > By creating an account, you agree to our Terms and Conditions, Privacy Policy and Cookies Policy</Field> */}
                     </div>
 
                 </Form >
             </Formik>
-            <a className=" forgot-password" >Forgot Password?</a>
-            <button type=" submit" > Login </button>
 
-            <p> Don`t have an account yet? <a href="" target=" _blank" > Sign up </a> </p>
 
         </div>
 

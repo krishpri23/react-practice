@@ -1,37 +1,46 @@
 
-
-import Logo from '../assets/sb-logo-resized.png'
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import UserSignup from './UserSignup';
+import ProviderSignup from './providerSignup';
 
 function CreateAccount() {
+
+    const [userForm, setUserForm] = useState(false);
+    const [providerForm, setProviderForm] = useState(false);
+
+    const handleUserForm = () => {
+        setUserForm(true)
+        setProviderForm(false)
+    }
+
+    const handleProviderForm = () => {
+        setUserForm(false)
+        setProviderForm(true)
+    }
     return (
 
-        <div className="create-account">
-            <img className="logo-image" src={Logo} alt="sacredbox-logo" />
-            <form className="create-account-form">
-                <h2>Create an account</h2>
-                <div className="create-user">
-                    <div className="user-title">
-                        <h3>I'm a user</h3>
-                        <h1>Seeking for a service </h1>
-                    </div>
-                    {/* <input className="radio-btn" type="radio" name="type" value="user" /> */}
+        <div className="signup-form">
+            <h2>Sign up</h2>
+            <p> Already have an account yet? <Link to='/'> Sign in </Link> </p>
 
+            <p>Which one are you?</p>
+            <div className="create-profile">
+                <div onClick={handleUserForm}>
+                    <h3>User</h3>
                 </div>
-
-                <div className="create-provider">
-                    <div className="provider-title">
-                        <h3>I'm a service provider </h3>
-                        <h1> Interested in registering in the platform </h1>
-                    </div>
-                    {/* <input type="radio" name="type" value="user" /> */}
-
+                <div onClick={handleProviderForm}>
+                    <h3> Provider </h3>
                 </div>
+            </div>
 
-                <button id="create-btn">Continue</button>
+            {userForm && <UserSignup />}
+            {providerForm && <ProviderSignup />}
+            <button type="submit" > Create account </button>
+        </div >
 
-                <p> Already have an account yet? <a href="" target='_blank'> Sign in </a> </p>
-            </form>
-        </div>);
+
+    )
 }
 
 export default CreateAccount;

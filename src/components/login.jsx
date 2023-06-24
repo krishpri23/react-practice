@@ -2,6 +2,7 @@
 import Logo from '../assets/sb-logo-resized.png'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 function Login() {
 
@@ -60,8 +61,8 @@ function Login() {
                 </Form>
             </Formik >
             <a className='forgot-password'>Forgot Password?</a>
-            <button type='submit'> Login </button>
-            <p> Don`t have an account yet? <a href="" target='_blank'> Sign up </a> </p>
+            <Link to='/' ><button type='submit'> Login </button></Link>
+            <p> Don`t have an account yet? <Link to='/create'> Sign up </Link> </p>
         </div >);
 }
 
