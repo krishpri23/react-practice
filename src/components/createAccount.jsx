@@ -1,11 +1,11 @@
 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import UserSignup from './UserSignup';
+import UserSignup from './userSignup';
 import ProviderSignup from './providerSignup';
+// import UserSignup from './UserSignup';
 
 function CreateAccount() {
-
     const [userForm, setUserForm] = useState(false);
     const [providerForm, setProviderForm] = useState(false);
 
@@ -18,12 +18,11 @@ function CreateAccount() {
         setUserForm(false)
         setProviderForm(true)
     }
-    return (
 
+    return (
         <div className="signup-form">
             <h2>Sign up</h2>
             <p> Already have an account yet? <Link to='/'> Sign in </Link> </p>
-
             <p>Which one are you?</p>
             <div className="create-profile">
                 <div onClick={handleUserForm}>
@@ -34,13 +33,12 @@ function CreateAccount() {
                 </div>
             </div>
 
+
             {userForm && <UserSignup />}
             {providerForm && <ProviderSignup />}
-            <button type="submit" > Create account </button>
-        </div >
 
-
+        </div>
     )
-}
-
-export default CreateAccount;
+} 
+ 
+export default CreateAccount; 

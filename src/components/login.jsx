@@ -1,69 +1,42 @@
-
+// import React from 'react'
 import Logo from '../assets/sb-logo-resized.png'
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
+// import React from 'react'
+
 function Login() {
-
-    const initialValues = {
-        email: "",
-        password: ""
-    }
-
-    const onSubmit = (values) => {
-        console.log(values)
-    }
-
-    const validationSchema = Yup.object({
-        email: Yup.string().email('Invalid email format').required('Required!'),
-        password: Yup.string().min(8, 'Must be atleast 8 characters or more').required('Required!')
-    })
-
     return (
         <div className="login-form">
             <img className="logo-image" src={Logo} alt="sacredbox-logo" />
             <h2>Hi, Welcome Back!</h2>
-            <Formik
-                initialValues={initialValues}
-                onSubmit={onSubmit}
-                validationSchema={validationSchema}>
 
-                <Form className="login" >
-                    <div className="form-control">
-                        <label htmlFor="email"> Email Address </label>
-                        <Field
-                            type="text"
-                            placeholder="hello@email.com"
-                            id='email'
-                            name='email' />
-                        <ErrorMessage name='email'>
-                            {
-                                (ErrorMessage) => <div className='error'>{ErrorMessage}</div>
-                            }
-                        </ErrorMessage>
-                    </div>
+            <form className="login" >
+                <div className="form-control">
+                    <label htmlFor="email"> Email Address </label>
+                    <input
+                        type="text"
+                        placeholder="hello@email.com"
+                        id='email'
+                        name='email' />
 
-                    <div className="form-control">
-                        <label htmlFor="password" > Password </label>
-                        <Field
-                            type="password"
-                            placeholder="8+ characters required"
-                            id='password'
-                            name='password' />
-                        <ErrorMessage name='password' >
-                            {
-                                (ErrorMessage) => <div className='error'>{ErrorMessage}</div>
-                            }
-                        </ErrorMessage>
-                    </div>
+                </div>
 
-                </Form>
-            </Formik >
+                <div className="form-control">
+                    <label htmlFor="password" > Password </label>
+                    <input
+                        type="password"
+                        placeholder="8+ characters required"
+                        id='password'
+                        name='password' />
+
+                </div>
+            </form>
+
             <a className='forgot-password'>Forgot Password?</a>
-            <Link to='/' ><button type='submit'> Login </button></Link>
-            <p> Don`t have an account yet? <Link to='/create'> Sign up </Link> </p>
+            <button type='submit'> Login </button>
+            <p> Don`t have an account yet? <Link to='/create'> Sign up </Link></p>
         </div >);
+
 }
 
-export default Login;
+export default Login
