@@ -1,0 +1,182 @@
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+
+/*preset*/
+
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+}
+
+body,h1,h2,h3 {
+  margin: 0;
+  padding: 0;
+
+}
+
+:root {
+  font-family: Raleway;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 20px;
+  --placeholder-color: #CED3DF;
+  --button-color: #5732F9;
+  --secondary-text: white;
+  --sub-text:rgb(131, 128, 128);
+  --hover : #DDE2EE
+}
+
+/* Login & Signup */
+
+.login-form, .form-control,.create-account, .form-group{
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+
+ .login.create-account {
+  max-width: 400px;
+  margin-left: 3rem;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight:600;
+  margin: 0.5rem 0.2rem;
+  
+}
+
+input {
+  font-size: 0.65rem;
+  padding: 0.62rem 4.3rem 0.62rem 0.6rem ;
+  border: 1px solid var(--placeholder-color);
+  border-radius: 0.25rem;
+  text-align: left;
+  margin-bottom: 0.8rem;
+}
+
+::placeholder {
+  color: var(--placeholder-color);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.62rem 4.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: inherit;
+  background-color: var(--button-color);
+  margin-top: 1.25rem;
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+}
+
+.signup-form button {
+  width: 50%;
+  text-transform: capitalize;
+  padding: 0.9rem 2rem;
+}
+
+p {
+  font-size: 0.7rem;
+  color: var(--sub-text);
+  font-weight: 700;
+}
+a {
+  color:var(--button-color);
+  cursor: pointer;
+}
+
+.terms {
+  font-size: 0.5rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+.forgot-password {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-align: right;
+}
+
+.error {
+  color:red;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Create account */
+
+.signup-form {
+  max-width: 400px;
+  margin: 2rem auto ;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.user-signup {
+  width: 100%;
+}
+
+.create-account {
+  margin-top: 4rem;
+}
+ .create-profile {
+ display: flex;
+ gap: 1rem;
+
+}
+
+.create-profile div {
+  border: 1px solid var(--button-color);
+  border-radius: 0.4rem;
+  padding: 0.5rem 2rem; 
+  margin-top: 0.2rem;
+  cursor: pointer;
+
+}
+
+.create-profile div:hover {
+  background-color: var(--hover);
+  color: var(--button-color);
+}
+
+#create-btn {
+width: 100%;
+}
+
+
+h2 {
+  font-size: 1.2rem;
+}
+h3 {
+  font-size: 0.7rem;
+   margin-bottom: 0.3rem;
+}
+
+h1 {
+  font-size: 0.6rem;
+  color: var(--sub-text);
+  font-weight: 500;
+  
+}
+
+img {
+  display: inline-block;
+}
+
