@@ -48,7 +48,6 @@ function Login() {
                     <input
                         type="password"
                         placeholder="8+ characters required"
-                        minLength={8}
                         id='password'
                         {...register('password', {
                             required: {

@@ -103,7 +103,7 @@ function ProviderSignup() {
                         className=" terms"
                     />
                 </div>
-
+                <button type='submit'> Signup </button>
                 <DevTool control={control} />
             </form >
         </div>

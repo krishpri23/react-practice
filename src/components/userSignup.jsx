@@ -59,8 +59,10 @@ function UserSignup() {
                         {...register('password', {
                             required: {
                                 value: true,
-                                message: 'Password is required'
-                            }
+                                message: 'Password is required',
+
+                            },
+                            minLength: 8,
                         })}
                     />
 
@@ -103,8 +105,9 @@ function UserSignup() {
                         className=" terms"
                     />
                 </div>
-
+                <button type='submit'> Signup </button>
                 <DevTool control={control} />
+
             </form >
         </div>
 
