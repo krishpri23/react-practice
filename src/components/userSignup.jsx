@@ -1,115 +1,118 @@
 // import React from 'react'
 
-import { useForm } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
+import { Button, Checkbox, TextField, FormControlLabel } from '@mui/material';
+
+import { styled } from '@mui/material';
+// import { useState } from 'react';
+
+
+
+const StyledTextField = styled(TextField)({
+    padding: '0.1rem',
+    marginTop: '1rem',
+    label: {
+        fontSize: '1rem',
+        fontWeight: '500',
+    },
+
+})
 
 function UserSignup() {
 
-    const form = useForm();
-    const { register, control, handleSubmit, formState } = form;
-    const { errors } = formState;
+    // const [signupFormData, setSignupFormData] = useState({
+    //     name: '',
+    //     email: '',
+    //     password: '',
+    //     confirmPassword: '',
+    //     contact: '',
+    //     address: '',
+    //     selectState: '',
+    //     country: '',
+    //     termsConditions: ''
 
-    const onSubmit = (data) => {
-        console.log('form is submitted', data)
-    }
+    // })
+    // const [stateVal, setStateVal] = useState('')
+
+    // const handleStateChange = (event) => {
+    //     setStateVal(event.target.value)
+    //     console.log(event.target.value);
+    // }
+
+
     return (
-        <div className=" user-signup" >
+        <div className=" User-signup" >
 
             <form>
-                <div className="form-control" onSubmit={handleSubmit(onSubmit)}>
-                    <label htmlFor="name" >Full Name</label>
-                    <input
-                        placeholder=" please enter your name"
+
+                <div className="form-control" >
+                    <StyledTextField
+                        label='Name'
                         id=" name"
-                        {...register('name', {
-                            required: {
-                                value: true,
-                                message: 'please enter your name'
-                            }
-                        })}
+                        size='small'
+                        required
                     />
 
                 </div>
-                <p className='error'>{errors.name?.message}</p>
+
                 <div className="form-control">
-                    <label htmlFor="email">Email Address</label>
-                    <input
-                        placeholder=" please enter your email id"
+
+                    <StyledTextField
+                        label='Email Address'
                         name=" email"
-                        {...register('email', {
-                            pattern: {
-                                value: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
-                                message: 'Invalid email format'
-                            },
-                            required: {
-                                value: true,
-                                message: 'Email Address is required'
-                            }
-                        })}
+                        size='small'
+                        required
                     />
                 </div>
-                <p className='error'>{errors.email?.message}</p>
 
                 <div className="form-control">
-                    <label htmlFor="password" > Password </label>
-                    <input
+
+                    <StyledTextField
                         type="password"
-                        placeholder="8+ characters required"
+                        label='Password'
                         id=" password"
-                        {...register('password', {
-                            required: {
-                                value: true,
-                                message: 'Password is required',
-
-                            },
-                            minLength: 8,
-                        })}
+                        size='small'
+                        required
                     />
 
                 </div>
-                <p className='error'>{errors.password?.message}</p>
+
                 <div className="form-control">
-                    <label htmlFor="confirmpassword" > Confirm Password </label>
-                    <input
+
+                    <StyledTextField
+                        label='Confirm password'
                         type="password"
-                        placeholder="confirm password"
+                        size='small'
                         id=" confirmpassword"
-                        {...register('confirmpassword', {
-                            required: {
-                                value: true,
-                                message: 'Password is required'
-                            }
-                        })}
+                        required
+
                     />
                 </div>
-                <p className='error'>{errors.confirmpassword?.message}</p>
-                <div className="form-control">
-                    <label htmlFor="contactNumber">Contact Number</label>
-                    <input
-                        type=" number"
-                        placeholder=" please enter your phone number"
-                        id=" contactNumber"
-                        {...register('contactNumber', {
-                            required: {
-                                value: true,
-                                message: 'Contact number is required'
-                            }
-                        })}
-                    />
-                </div>
-                <p className='error'>{errors.contactNumber?.message}</p>
 
                 <div className="form-control">
-                    <input
-                        type=" checkbox"
-                        className=" terms"
+                    <StyledTextField
+                        label='Contact number'
+                        type=" number"
+                        size='small'
+                        id=" contactNumber"
+                        required
+
                     />
                 </div>
-                <button type='submit'> Signup </button>
-                <DevTool control={control} />
+                <div className="form-control">
+                    <FormControlLabel
+                        label='I accept terms & conditions'
+                        control={
+                            <Checkbox
+                                required
+
+                            />}
+                    ></FormControlLabel>
+
+                </div>
+                <Button id="btn" type='submit' variant='contained' fullWidth> Signup </Button>
 
             </form >
-        </div>
+        </div >
 
     )
 }

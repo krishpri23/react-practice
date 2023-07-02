@@ -19,10 +19,7 @@ body,h1,h2,h3 {
 }
 
 :root {
-  font-family: Raleway;
-  line-height: 1.5;
-  font-weight: 400;
-  font-size: 20px;
+ 
   --placeholder-color: #CED3DF;
   --button-color: #5732F9;
   --secondary-text: white;
@@ -55,7 +52,7 @@ label {
   margin: 0.5rem 0.2rem;
   
 }
-
+/* 
 input {
   font-size: 0.65rem;
   padding: 0.62rem 4.3rem 0.62rem 0.6rem ;
@@ -63,46 +60,13 @@ input {
   border-radius: 0.25rem;
   text-align: left;
   margin-bottom: 0.8rem;
-}
+} */
 
-::placeholder {
-  color: var(--placeholder-color);
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.62rem 4.3rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-  font-family: inherit;
-  background-color: var(--button-color);
-  margin-top: 1.25rem;
-  color: var(--secondary-text);
-  text-transform: uppercase;
-  cursor: pointer;
-  width: 100%;
-}
 
 .signup-form button {
   width: 50%;
   text-transform: capitalize;
   padding: 0.9rem 2rem;
-}
-
-p {
-  font-size: 0.7rem;
-  color: var(--sub-text);
-  font-weight: 700;
-}
-a {
-  color:var(--button-color);
-  cursor: pointer;
 }
 
 .terms {
@@ -111,12 +75,6 @@ a {
   margin-left: 1rem;
 }
 
-.forgot-password {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-decoration: underline;
-  text-align: right;
-}
 
 .error {
   color:red;
@@ -161,7 +119,7 @@ a {
   color: var(--button-color);
 }
 
-#create-btn {
+#btn {
 width: 100%;
 }
 

@@ -1,9 +1,11 @@
 
 import { Link } from 'react-router-dom';
+
+
 import { useState } from 'react';
-import UserSignup from './userSignup';
-import ProviderSignup from './providerSignup';
-// import UserSignup from './UserSignup';
+import { Button } from '@mui/material';
+import ProviderSignup from './ProviderSignup';
+import UserSignup from './UserSignup';
 
 function CreateAccount() {
     const [userForm, setUserForm] = useState(false);
@@ -19,18 +21,21 @@ function CreateAccount() {
         setProviderForm(true)
     }
 
+    const buttonStyles = {
+        padding: '0.7rem'
+
+    }
+
     return (
         <div className="signup-form">
             <h2>Sign up</h2>
             <p> Already have an account yet? <Link to='/'> Sign in </Link> </p>
             <p>Which one are you?</p>
             <div className="create-profile">
-                <div onClick={handleUserForm}>
-                    <h3>User</h3>
-                </div>
-                <div onClick={handleProviderForm}>
-                    <h3> Provider </h3>
-                </div>
+
+                <Button type='submit' variant='outlined' onClick={handleUserForm} style={buttonStyles}>  User </Button>
+                <Button type='submit' variant='outlined' onClick={handleProviderForm} style={buttonStyles}> Provider </Button>
+
             </div>
 
 
@@ -39,6 +44,6 @@ function CreateAccount() {
 
         </div>
     )
-} 
- 
+}
+
 export default CreateAccount; 
