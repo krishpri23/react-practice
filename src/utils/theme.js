@@ -58,22 +58,28 @@ const theme = createTheme({
         fontSize: 16,
         h1: {
             fontSize: '3.2rem',
-            lineHeight: 1.1,
             fontWeight: 500,
             margin: 0,
         },
         h2: {
-            fontSize: '1.2rem'
+            fontSize: '1.6rem',
+            fontWeight: 700,
+            lineHeight: 1.2,
+            marginBottom: '0.5rem'
         },
         h3: {
-            fontSize: '0.7rem',
-            marginBottom: '0.3rem'
-        }
+            fontSize: '1rem',
+            marginBottom: '0.3rem',
+            fontWeight: 500,
+        },
+        body2: {
+            fontSize: '1rem',
+            fontWeight: '500',
+            lineHeight: 1.1,
+            margin: '1rem 0'
+        },
     },
-    p: {
-        fontSize: '0.9rem',
-        fontWeight: '700'
-    },
+
 
 
 },

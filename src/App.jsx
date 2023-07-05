@@ -7,7 +7,7 @@ import { CssBaseline } from '@mui/material';
 
 import Login from './components/login'
 import CreateAccount from './components/CreateAccount'
-import UserSignup from './components/userSignup'
+import UserSignup from './components/UserSignup'
 import ProviderSignup from './components/ProviderSignup';
 import theme from './utils/theme'
 
