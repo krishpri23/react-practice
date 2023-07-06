@@ -1,143 +1,83 @@
-// import React from 'react'
 
-import { Button, Checkbox, TextField, FormControlLabel, Box } from '@mui/material';
-
+import { DevTool } from '@hookform/devtools';
+import { TextField, Box, Button, Typography, FormControlLabel, Checkbox } from '@mui/material';
 import { styled } from '@mui/material';
-import { useState } from 'react';
-import '../styles/Signup.css'
-
-
-const StyledTextField = styled(TextField)({
-    padding: '0.1rem',
-    marginTop: '1rem',
-});
-
+import { useForm } from 'react-hook-form';
+import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
 
 function UserSignup() {
 
-    const [signupFormData, setSignupFormData] = useState({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        contact: '',
-        termsConditions: ''
-
-    })
-
-    const [formErrors, setFormErrors] = useState({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        contactNumber: '',
-        termsConditions: '',
+    const schema = yup.object({
+        name: yup.string().required('Name is required')
+            .matches(/^([^0-9]*)$/, 'Name should not contains numbers.')
+            .max(40, 'Name should not exceed 40 characters'),
+        email: yup.string().email('Invalid Email Address').required('Email is required'),
+        password: yup.string().required('Password is required')
+            .min(8, 'Min of 8 characters')
+            .matches(RegExp('(.*[a-z].*)'), '1 lowercase letter')
+            .matches(RegExp('(.*[A-Z].*)'), '1 uppercase letter')
+            .matches(RegExp('(.*\\d.*)'), '1 number')
+            .matches(RegExp('^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!~]).*$'), '1 special character'),
+        confirmPassword: yup.string().required('Please confirm your password')
+            .oneOf([yup.ref('password')], 'Passwords must match'),
+        contactNumber: yup.string().required('Contact number is required'),
+        termsConditions: yup.bool().oneOf([true], 'You must agree to terms & conditions').required()
     });
 
-    const validateName = () => {
-        if (signupFormData.name.trim() === '') {
-            return 'Name is required';
-        }
-        return '';
+
+    const StyledTextField = styled(TextField)({
+        padding: '0.1rem',
+        marginTop: '1rem',
+        label: {
+            fontSize: '1rem',
+            fontWeight: '500',
+        },
+    });
+    const { register, handleSubmit, control, formState } = useForm({
+        defaultValues: {
+            name: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            contactNumber: '',
+            termsConditions: '',
+
+        },
+        mode: 'onChange',
+        criteriaMode: 'all',
+        resolver: yupResolver(schema)
+    });
+
+
+    const { errors, isValid, } = formState;
+
+
+    const onSubmit = (data) => {
+        console.log(data);
     }
-
-    const validateEmail = () => {
-        if (!signupFormData.email.match(/^\S+@\S+\.\S+$/)) {
-            return 'Invalid email format';
-        }
-        return '';
-    }
-    const validatePassword = () => {
-        if (signupFormData.password.length < 8) {
-            return 'Password should be atleast 8 characters';
-        }
-        return '';
-    }
-
-    const validateConfirmPassword = () => {
-        if (!(signupFormData.password === signupFormData.confirmPassword)) {
-            return 'Password does not match';
-        }
-        return '';
-    }
-
-    const validateContactNumber = () => {
-        const phoneRegex = /^\d{10}$/;
-        if (!phoneRegex.test(signupFormData.contactNumber)) {
-            return 'Invalid contact number'
-        }
-        return ''
-    }
-    const validateTerms = () => {
-        if (!signupFormData.termsConditions) {
-            return 'Please agree to terms and conditions';
-        }
-        return ''
-    }
-    const handleChange = (event) => {
-        const { name, value, type, checked } = event.target;
-        setSignupFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                [name]: type === 'checkbox' ? checked : value,
-            }
-        })
-
-        setFormErrors(prevFormErros => {
-            return {
-                ...prevFormErros,
-                [name]: ''
-            }
-        })
-
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const nameError = validateName();
-        const emailError = validateEmail();
-        const passwordError = validatePassword();
-        const confirmPasswordError = validateConfirmPassword();
-        const contactError = validateContactNumber();
-        const termsError = validateTerms();
-
-        if (nameError || emailError || passwordError || contactError || confirmPasswordError || termsError) {
-            setFormErrors({
-                name: nameError,
-                email: emailError,
-                password: passwordError,
-                contactNumber: contactError,
-                confirmPassword: confirmPasswordError,
-                termsConditions: termsError,
-            })
-        }
-        else {
-            console.log(signupFormData);
-        }
-
-    }
-
     return (
         <Box sx={{
             maxWidth: '600px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
+            width: '50%'
         }}>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
 
                 <div>
                     <StyledTextField
                         label='Name'
                         name="name"
+                        id="name"
                         required
-                        value={signupFormData.name}
-                        onChange={handleChange}
                         size='small'
                         fullWidth
+                        {...register('name')}
                     />
-                    {formErrors.name && <span className='error'>{formErrors.name}</span>}
+                    <Typography variant='h4'>{errors.name?.message} </Typography>
 
                 </div>
 
@@ -149,11 +89,11 @@ function UserSignup() {
                         size='small'
                         fullWidth
                         required
-                        value={signupFormData.email}
-                        onChange={handleChange}
+                        {...register('email')}
                     />
-                    {formErrors.email && <span className='error'> {formErrors.email} </span>}
+                    <Typography variant='h4'>{errors.email?.message} </Typography>
                 </div>
+
 
                 <div >
 
@@ -164,12 +104,10 @@ function UserSignup() {
                         size='small'
                         fullWidth
                         required
-                        value={signupFormData.password}
-                        onChange={handleChange}
+                        {...register('password')}
 
                     />
-                    {formErrors.password && <span className='error'>{formErrors.password}</span>}
-
+                    <Typography variant='h4'>{errors.password?.message} </Typography>
                 </div>
 
                 <div>
@@ -181,10 +119,11 @@ function UserSignup() {
                         fullWidth
                         name="confirmPassword"
                         required
-                        value={signupFormData.confirmPassword}
-                        onChange={handleChange}
+                        {...register('confirmPassword')}
+
                     />
-                    {formErrors.confirmPassword && <span className='error'> {formErrors.confirmPassword} </span>}
+                    <Typography variant='h4'>{errors.confirmPassword?.message} </Typography>
+
                 </div>
 
                 <div>
@@ -196,16 +135,14 @@ function UserSignup() {
 
                         name="contactNumber"
                         required
-                        value={signupFormData.contactNumber}
-                        onChange={handleChange}
+                        {...register('contactNumber')}
                     />
-                    {formErrors.contactNumber && <span className='error'> {formErrors.contactNumber} </span>}
+                    <Typography variant='h4'>{errors.contactNumber?.message} </Typography>
                 </div>
                 <div >
                     <FormControlLabel
                         label='I accept terms & conditions'
-                        value={signupFormData.termsConditions}
-                        onChange={handleChange}
+                        name='termsConditions'
                         control={
                             <Checkbox
                                 required
@@ -214,11 +151,10 @@ function UserSignup() {
                     ></FormControlLabel>
 
                 </div>
-                <Button id="btn" type='submit' variant='contained' fullWidth> Signup </Button>
-            </form >
-        </Box >
-
+                <Button id="btn" type='submit' variant='contained' fullWidth disabled={!isValid}> Signup </Button>
+            </form>
+            <DevTool control={control} />
+        </Box>
     )
 }
-
 export default UserSignup

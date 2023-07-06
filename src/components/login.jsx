@@ -3,6 +3,7 @@ import Logo from '../assets/sb-logo-resized.png';
 import { TextField, Button, styled, Box, Typography } from '@mui/material';
 import './CreateAccount'
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 function Login() {
 
@@ -13,18 +14,28 @@ function Login() {
             fontSize: '1rem',
             fontWeight: '500',
         },
-
     })
 
     const StyledBox = styled(Box)({
         display: 'flex',
         flexDirection: 'column',
     })
+
+    const { register, handleSubmit } = useForm({
+        defaultValues: {
+            'email': '',
+            'password': '',
+        }
+    })
+
+    const onSubmit = (data) => {
+        console.log(data);
+    }
     return (
         <Box sx={{
             display: 'flex',
             flexDirection: 'column',
-            maxWidth: '400px',
+            maxWidth: '600px',
             justifyContent: 'center',
             m: '3rem'
         }}>
@@ -38,7 +49,7 @@ function Login() {
                 }} />
             <Typography variant='h1'>Hi, Welcome Back!</Typography>
 
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <StyledBox>
                     <StyledTextField
                         label='Email Address'
@@ -47,10 +58,9 @@ function Login() {
                         required
                         size='small'
                         fullWidth
+                        {...register('email')}
                     />
-                </StyledBox>
 
-                <StyledBox>
                     <StyledTextField
                         label="Password"
                         type='password'
@@ -58,6 +68,7 @@ function Login() {
                         required
                         size='small'
                         fullWidth
+                        {...register('password')}
                     />
                 </StyledBox>
 

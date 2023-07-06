@@ -1,10 +1,10 @@
-// import React from 'react'
 
-import { Button, Checkbox, MenuItem, TextField, Radio, RadioGroup, FormControlLabel, FormLabel, Box } from '@mui/material';
-
-import { useState } from 'react';
+import { DevTool } from '@hookform/devtools';
+import { TextField, Box, Button, Typography, FormControlLabel, Checkbox, RadioGroup, FormLabel, Radio, MenuItem } from '@mui/material';
 import { styled } from '@mui/material';
-import '../styles/Signup.css'
+import { useForm } from 'react-hook-form';
+import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
 
 
 const StyledTextField = styled(TextField)({
@@ -14,142 +14,53 @@ const StyledTextField = styled(TextField)({
         fontSize: '1rem',
         fontWeight: '500',
     },
-    fullWidth: 'true',
-    size: 'small',
-
 })
 
 function ProviderSignup() {
-
-    const [signupFormData, setSignupFormData] = useState({
-        businessType: '',
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        contactNumber: '',
-        address: '',
-        selectState: '',
-        country: '',
-        termsConditions: true,
-
-
+    const schema = yup.object({
+        name: yup.string().required('Name is required')
+            .matches(/^([^0-9]*)$/, 'Name should not contains numbers.')
+            .max(40, 'Name should not exceed 40 characters'),
+        email: yup.string().email('Invalid Email Address').required('Email is required'),
+        password: yup.string().required('Password is required')
+            .min(8, 'Min of 8 characters')
+            .matches(RegExp('(.*[a-z].*)'), '1 lowercase letter')
+            .matches(RegExp('(.*[A-Z].*)'), '1 uppercase letter')
+            .matches(RegExp('(.*\\d.*)'), '1 number')
+            .matches(RegExp('^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!~]).*$'), '1 special character'),
+        confirmPassword: yup.string().required('Please confirm your password')
+            .oneOf([yup.ref('password')], 'Passwords must match'),
+        contactNumber: yup.string().required('Contact number is required'),
+        address: yup.string().required('Address is required'),
+        selectState: yup.string().required('State is required'),
+        country: yup.string().required('Country is required'),
+        termsConditions: yup.bool().oneOf([true], 'You must agree to terms & conditions').required()
     });
 
-    const [formErrors, setFormErrors] = useState({
-        businessType: '',
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        contactNumber: '',
-        address: '',
-        selectState: '',
-        country: '',
-        termsConditions: '',
+    const { register, handleSubmit, control, formState } = useForm({
+        defaultValues: {
+            businessType: '',
+            name: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            contactNumber: '',
+            address: '',
+            selectState: '',
+            country: '',
+            termsConditions: '',
+
+        },
+        mode: 'onBlur',
+        criteriaMode: 'all',
+        resolver: yupResolver(schema)
     });
 
-    const validateName = () => {
-        if (signupFormData.name.trim() === '') {
-            return 'Name is required';
-        }
-        return '';
+    const { errors } = formState;
+
+    const onSubmit = (data) => {
+        console.log(data);
     }
-
-    const validateEmail = () => {
-        if (!signupFormData.email.match(/^\S+@\S+\.\S+$/)) {
-            return 'Invalid email format';
-        }
-        return '';
-    }
-    const validatePassword = () => {
-        if (signupFormData.password.length < 8) {
-            return 'Password should be atleast 8 characters';
-        }
-        return '';
-    }
-
-    const validateConfirmPassword = () => {
-        if (!(signupFormData.password === signupFormData.confirmPassword)) {
-            return 'Password does not match';
-        }
-        return '';
-    }
-
-    const validateContactNumber = () => {
-        const phoneRegex = /^\d{10}$/;
-        if (!phoneRegex.test(signupFormData.contactNumber)) {
-            return 'Invalid contact number'
-        }
-        return ''
-    }
-    const validateState = () => {
-
-        if (signupFormData.selectState === '') {
-            return 'Please select a state';
-        }
-
-    }
-    const validateCountry = () => {
-        if (!signupFormData.country) {
-            return 'Please select a country';
-        }
-        return ''
-    }
-    const validateTerms = () => {
-        if (!signupFormData.termsConditions) {
-            return 'Please agree to terms and conditions';
-        }
-        return ''
-    }
-    const handleChange = (event) => {
-        const { name, value, type, checked } = event.target;
-        setSignupFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                [name]: type === 'checkbox' ? checked : value,
-            }
-        })
-
-        setFormErrors(prevFormErros => {
-            return {
-                ...prevFormErros,
-                [name]: ''
-            }
-        })
-
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const nameError = validateName();
-        const emailError = validateEmail();
-        const passwordError = validatePassword();
-        const confirmPasswordError = validateConfirmPassword();
-        const contactError = validateContactNumber();
-        const stateError = validateState();
-        const countryError = validateCountry();
-        const termsError = validateTerms();
-
-        if (nameError || emailError || passwordError || contactError || confirmPasswordError || stateError || countryError || termsError) {
-            setFormErrors({
-                name: nameError,
-                email: emailError,
-                password: passwordError,
-                contactNumber: contactError,
-                confirmPassword: confirmPasswordError,
-                selectState: stateError,
-                country: countryError,
-                termsConditions: termsError,
-            })
-        }
-        else {
-            console.log(signupFormData);
-        }
-
-    }
-
 
     return (
         <Box sx={{
@@ -157,9 +68,10 @@ function ProviderSignup() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
+            width: '50%'
 
         }}>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div >
                     <FormLabel sx={{ fontWeight: '600', color: 'black' }} required> Business Type</FormLabel>
                     <RadioGroup
@@ -168,14 +80,13 @@ function ProviderSignup() {
                     >
                         <FormControlLabel
                             label='Individual'
-                            onChange={handleChange}
                             name='businessType'
                             value='Individual'
                             size='small'
-                            fullWidth
-                            checked={signupFormData.businessType === 'Individual'}
+
                             control={
-                                <Radio />
+                                <Radio
+                                />
                             }
 
                         >
@@ -184,11 +95,9 @@ function ProviderSignup() {
                         <FormControlLabel
                             label='Business'
                             size='small'
-                            onChange={handleChange}
+
                             name='businessType'
                             value='Business'
-
-                            checked={signupFormData.businessType === 'Business'}
                             control={
                                 <Radio />
                             }
@@ -202,43 +111,42 @@ function ProviderSignup() {
                     <StyledTextField
                         label='Name'
                         name="name"
+                        id="name"
                         size='small'
                         required
-                        value={signupFormData.name}
-                        onChange={handleChange}
                         fullWidth
+                        {...register('name')}
                     />
-                    {formErrors.name && <span className='error'>{formErrors.name}</span>}
+                    <Typography variant='h4'>{errors.name?.message} </Typography>
                 </div>
 
                 <div >
                     <StyledTextField
                         label='Email Address'
                         name="email"
+                        id="email"
                         size='small'
                         fullWidth
                         type='email'
                         required
-                        value={signupFormData.email}
-                        onChange={handleChange}
+                        {...register('email')}
 
                     />
-                    {formErrors.email && <span className='error'> {formErrors.email} </span>}
+                    <Typography variant='h4'>{errors.email?.message} </Typography>
                 </div>
 
                 <div>
                     <StyledTextField
                         type="password"
+                        id="password"
                         label='Password'
                         name="password"
                         size='small'
                         fullWidth
                         required
-                        value={signupFormData.password}
-                        onChange={handleChange}
-
+                        {...register('password')}
                     />
-                    {formErrors.password && <span className='error'>{formErrors.password}</span>}
+                    <Typography variant='h4'>{errors.password?.message} </Typography>
                 </div>
 
                 <div >
@@ -248,11 +156,11 @@ function ProviderSignup() {
                         size='small'
                         fullWidth
                         name="confirmPassword"
+                        id="confirmPassword"
                         required
-                        value={signupFormData.confirmPassword}
-                        onChange={handleChange}
+                        {...register('confirmPassword')}
                     />
-                    {formErrors.confirmPassword && <span className='error'> {formErrors.confirmPassword} </span>}
+                    <Typography variant='h4'>{errors.confirmPassword?.message} </Typography>
                 </div>
 
                 <div >
@@ -262,14 +170,13 @@ function ProviderSignup() {
                         size='small'
                         fullWidth
                         name="contactNumber"
+                        id="contactNumber"
                         required
-                        value={signupFormData.contactNumber}
-                        onChange={handleChange}
 
+                        {...register('contactNumber')}
                     />
-                    {formErrors.contactNumber && <span className='error'> {formErrors.contactNumber} </span>}
+                    <Typography variant='h4'>{errors.contactNumber?.message} </Typography>
                 </div>
-
 
                 <div >
                     <StyledTextField
@@ -278,11 +185,11 @@ function ProviderSignup() {
                         size='small'
                         fullWidth
                         name='address'
+                        id="address"
                         required
-                        value={signupFormData.address}
-                        onChange={handleChange}
-
+                        {...register('address')}
                     />
+                    <Typography variant='h4'>{errors.address?.message} </Typography>
                 </div>
 
 
@@ -294,15 +201,17 @@ function ProviderSignup() {
                         size='small'
                         fullWidth
                         name='selectState'
-                        value={signupFormData.selectState}
-                        onChange={handleChange}
+                        id="selectState"
                         required
+                        {...register('selectState')}
+                        defaultValue={''}
+
                     >
 
                         <MenuItem value='california'>California</MenuItem>
                         <MenuItem value='newyork'>New York</MenuItem>
                     </StyledTextField>
-                    {formErrors.selectState && <span className='error'> {formErrors.selectState} </span>}
+                    <Typography variant='h4'>{errors.selectState?.message} </Typography>
                 </div>
 
                 <div >
@@ -313,16 +222,17 @@ function ProviderSignup() {
                         size='small'
                         fullWidth
                         name="country"
+                        id="country"
                         required
-                        value={signupFormData.country}
-                        onChange={handleChange}
-
+                        {...register('country')}
+                        defaultValue={''}
 
                     >
                         <MenuItem value='usa'>United States of America</MenuItem>
                         <MenuItem value='uk'> United Kingdom </MenuItem>
+
                     </StyledTextField>
-                    {formErrors.country && <span className='error'> {formErrors.country} </span>}
+                    <Typography variant='h4'>{errors.country?.message} </Typography>
                 </div>
 
                 <div >
@@ -331,17 +241,16 @@ function ProviderSignup() {
                         control={
                             <Checkbox
                                 required
-                                checked={signupFormData.termsConditions}
                                 name='termsConditions'
-                                onChange={handleChange}
-                                fullWidth
+                                id="termsConditions"
+                                {...register('termsConditions')}
                             />}
                     ></FormControlLabel>
-                    {formErrors.termsConditions && <span className='error'> {formErrors.termsConditions} </span>}
-
+                    <Typography variant='h4'>{errors.termsConditions?.message} </Typography>
                 </div>
                 <Button id="btn" type='submit' variant='contained' fullWidth> Signup </Button>
             </form >
+            <DevTool control={control}></DevTool>
         </Box >
 
     )
