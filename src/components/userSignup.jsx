@@ -10,12 +10,8 @@ import '../styles/Signup.css'
 const StyledTextField = styled(TextField)({
     padding: '0.1rem',
     marginTop: '1rem',
-    label: {
-        fontSize: '1rem',
-        fontWeight: '500',
-    },
+});
 
-})
 
 function UserSignup() {
 
@@ -122,29 +118,36 @@ function UserSignup() {
     }
 
     return (
-        <Box className=" User-signup" >
+        <Box sx={{
+            maxWidth: '600px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+        }}>
 
             <form onSubmit={handleSubmit}>
 
-                <div className="form-control" >
+                <div>
                     <StyledTextField
                         label='Name'
                         name="name"
-                        size='small'
                         required
                         value={signupFormData.name}
                         onChange={handleChange}
+                        size='small'
+                        fullWidth
                     />
                     {formErrors.name && <span className='error'>{formErrors.name}</span>}
 
                 </div>
 
-                <div className="form-control">
+                <div>
 
                     <StyledTextField
                         label='Email Address'
                         name="email"
                         size='small'
+                        fullWidth
                         required
                         value={signupFormData.email}
                         onChange={handleChange}
@@ -152,13 +155,14 @@ function UserSignup() {
                     {formErrors.email && <span className='error'> {formErrors.email} </span>}
                 </div>
 
-                <div className="form-control">
+                <div >
 
                     <StyledTextField
                         type="password"
                         label='Password'
                         name="password"
                         size='small'
+                        fullWidth
                         required
                         value={signupFormData.password}
                         onChange={handleChange}
@@ -168,12 +172,13 @@ function UserSignup() {
 
                 </div>
 
-                <div className="form-control">
+                <div>
 
                     <StyledTextField
                         label='Confirm password'
                         type="password"
                         size='small'
+                        fullWidth
                         name="confirmPassword"
                         required
                         value={signupFormData.confirmPassword}
@@ -182,11 +187,13 @@ function UserSignup() {
                     {formErrors.confirmPassword && <span className='error'> {formErrors.confirmPassword} </span>}
                 </div>
 
-                <div className="form-control">
+                <div>
                     <StyledTextField
                         label='Contact number'
                         type="number"
                         size='small'
+                        fullWidth
+
                         name="contactNumber"
                         required
                         value={signupFormData.contactNumber}
@@ -194,7 +201,7 @@ function UserSignup() {
                     />
                     {formErrors.contactNumber && <span className='error'> {formErrors.contactNumber} </span>}
                 </div>
-                <div className="form-control">
+                <div >
                     <FormControlLabel
                         label='I accept terms & conditions'
                         value={signupFormData.termsConditions}
@@ -208,7 +215,6 @@ function UserSignup() {
 
                 </div>
                 <Button id="btn" type='submit' variant='contained' fullWidth> Signup </Button>
-
             </form >
         </Box >
 

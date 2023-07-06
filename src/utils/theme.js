@@ -3,44 +3,6 @@ import { createTheme } from '@mui/material';
 
 
 const theme = createTheme({
-
-    components: {
-        MuiTextField: {
-            styleOverrides: {
-                padding: '0.5rem 0.5rem 0.5rem 0',
-                marginTop: '0.5rem'
-            }
-        },
-        MuiInputLabel: {
-            styleOverrides: {
-                asterisk: {
-                    color: "#d32f2f"
-                }
-            }
-        },
-        MuiButton: {
-            styleOverrides: {
-                borderRadius: '8px',
-                border: '1px solid transparent ',
-                padding: '0.62rem 4.3rem',
-                fontSize: '0.8rem',
-                fontWeight: '700',
-                background: 'primary',
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                color: 'primary',
-                fullWidth: '100%',
-            }
-        },
-        MuiCheckbox: {
-            styleOverrides: {
-                asterisk: {
-                    color: "#d32f2f"
-                }
-            }
-        },
-
-    },
     palette: {
         primary: {
             main: '#9575cd',
@@ -57,32 +19,67 @@ const theme = createTheme({
         fontWeight: 400,
         fontSize: 16,
         h1: {
-            fontSize: '3.2rem',
-            fontWeight: 500,
+            fontSize: '2rem',
+            fontWeight: 700,
             margin: 0,
+            color: 'black',
         },
         h2: {
             fontSize: '1.6rem',
             fontWeight: 700,
             lineHeight: 1.2,
-            marginBottom: '0.5rem'
+            // marginBottom: '0.5rem'
         },
         h3: {
             fontSize: '1rem',
-            marginBottom: '0.3rem',
+            // marginBottom: '0.3rem',
             fontWeight: 500,
         },
         body2: {
-            fontSize: '1rem',
+            fontSize: '0.9rem',
             fontWeight: '500',
             lineHeight: 1.1,
-            margin: '1rem 0'
+            margin: '0.5rem 0'
+        },
+    },
+    components: {
+        MuiTextField: {
+            styleOverrides: {
+                '& .MuiOutlinedInput-input': {
+                    padding: '0.1rem',
+                    marginTop: '1rem',
+                    marginLeft: '10rem',
+                    width: '100%',
+                    size: 'small',
+                    variant: 'filled',
+                }
+            }
+        },
+        // MuiButton: {
+        //     styleOverrides: {
+        //         root: {
+        //             borderRadius: '8px',
+        //             border: '1px solid transparent ',
+        //             padding: '0.62rem 4.3rem',
+        //             fontSize: '0.8rem',
+        //             fontWeight: '700',
+        //             background: 'primary',
+        //             textTransform: 'uppercase',
+        //             cursor: 'pointer',
+        //             color: 'primary',
+        //             fullWidth: '100%',
+        //         },
+        //     }
+        // },
+        MuiCheckbox: {
+            styleOverrides: {
+                asterisk: {
+                    color: "#d32f2f"
+                }
+            }
         },
     },
 
-
-
-},
-)
+})
 
 export default theme

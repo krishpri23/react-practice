@@ -27,17 +27,25 @@ function CreateAccount() {
     // }
 
     return (
-        <Box className="signup-form">
-            <Typography variant='h2'> Sign Up</Typography>
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textTransform: 'capitalize',
+            padding: '0.9rem 2rem',
+            maxWidth: '700px',
+            m: 'auto auto',
+            backgroundColor: 'whitesmoke',
+        }}>
+            <Typography variant='h1' sx={{ mt: 2, }}> Sign Up</Typography>
             <Typography variant='body2'> Already have an account yet? <Link to='/'> Sign in </Link> </Typography>
             <Typography variant='body2'>Which one are you?</Typography>
-            <div className="create-profile">
+            <Box sx={{ display: 'flex', gap: 2 }}>
 
                 <Button type='submit' variant='outlined' onClick={handleUserForm} >  User </Button>
                 <Button type='submit' variant='outlined' onClick={handleProviderForm} > Provider </Button>
 
-            </div>
-
+            </Box>
 
             {userForm && <UserSignup />}
             {providerForm && <ProviderSignup />}

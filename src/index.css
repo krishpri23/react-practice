@@ -1,9 +1,9 @@
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+/* @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic); */
 
 
 /*preset*/
-
+/* 
 * {
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
@@ -25,33 +25,27 @@ body,h1,h2,h3 {
   --secondary-text: white;
   --sub-text:rgb(131, 128, 128);
   --hover : #DDE2EE
-}
+} */
 
 /* Login & Signup */
-.logo-image {
+/* .logo-image {
   width: 180px;
   height: 60px;
  
-}
+} */
 
-.login-form, .create-account, .form-control, .form-group{
+/* .login-form, .create-account, .form-control, .form-group{
   display: flex;
   flex-direction: column;
-  
   
 }
 
 .login-form, .create-account {
   max-width: 400px;
   margin-left: 3rem;
-}
+} */
 
-label {
-  font-size: 0.8rem;
-  font-weight:600;
-  margin: 0.5rem 0.2rem;
-  
-}
+
 /* 
 input {
   font-size: 0.65rem;
@@ -63,12 +57,12 @@ input {
 } */
 
 
-.signup-form button {
+/* .signup-form button {
   width: 50%;
   text-transform: capitalize;
   padding: 0.9rem 2rem;
-}
-
+} */
+/* 
 .terms {
   font-size: 0.5rem;
   margin-bottom: 1rem;
@@ -80,32 +74,31 @@ input {
   color:red;
   font-size: 0.7rem;
   font-weight: 600;
-}
+} */
 
 /* Create account */
 
-.signup-form {
+/* .signup-form {
   max-width: 400px;
   margin: 2rem auto ;
   display: flex;
   flex-direction: column;
   
-}
+} */
 
-.user-signup {
+/* .user-signup {
   width: 100%;
 }
 
 .create-account {
   margin-top: 4rem;
-}
- .create-profile {
+} */
+ /* .create-profile {
  display: flex;
  gap: 1rem;
+} */
 
-}
-
-.create-profile div {
+/* .create-profile div {
   border: 1px solid var(--button-color);
   border-radius: 0.4rem;
   padding: 0.5rem 2rem; 
@@ -142,4 +135,4 @@ h1 {
 img {
   display: inline-block;
 }
-
+ */

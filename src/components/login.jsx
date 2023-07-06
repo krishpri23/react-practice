@@ -1,8 +1,6 @@
 // import { useState } from 'react'
 import Logo from '../assets/sb-logo-resized.png';
-
-import { TextField, Button, styled } from '@mui/material';
-
+import { TextField, Button, styled, Box, Typography } from '@mui/material';
 import './CreateAccount'
 import { Link } from 'react-router-dom';
 
@@ -17,42 +15,65 @@ function Login() {
         },
 
     })
-    return (
-        <div className="login-form">
-            <img className="logo-image" src={Logo} alt="sacredbox-logo" />
-            <h2>Hi, Welcome Back!</h2>
 
-            <form className="login"   >
-                <div className="form-control">
+    const StyledBox = styled(Box)({
+        display: 'flex',
+        flexDirection: 'column',
+    })
+    return (
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            maxWidth: '400px',
+            justifyContent: 'center',
+            m: '3rem'
+        }}>
+            <Box
+                src={Logo}
+                component='img'
+                sx={{
+                    width: '180px',
+                    height: '60px',
+                    m: 0,
+                }} />
+            <Typography variant='h1'>Hi, Welcome Back!</Typography>
+
+            <form>
+                <StyledBox>
                     <StyledTextField
                         label='Email Address'
-                        variant='outlined'
                         type="text"
-                        id='email'
+                        name='email'
                         required
                         size='small'
-
+                        fullWidth
                     />
-                </div>
+                </StyledBox>
 
-                <div className="form-control">
+                <StyledBox>
                     <StyledTextField
                         label="Password"
-                        variant='outlined'
                         type='password'
-                        id='password'
+                        name='password'
+                        required
                         size='small'
+                        fullWidth
                     />
-                </div>
+                </StyledBox>
 
-                <Link className='forgot-password' to='/'>Forgot Password?</Link>
+                <Link className='forgot-password' to='/'>  <Typography variant='h3' sx={{
+                    mt: 3,
+                    mr: 1,
+                    mb: 1,
+                    display: 'flex',
+                    justifyContent: 'flex-end'
+                }}>Forgot Password? </Typography></Link>
                 <Button id="btn" type='submit' variant='contained' fullWidth> Login </Button>
-                <p> Don`t have an account yet? <Link to='/create'> Sign up </Link></p>
-
+                <Typography variant='body2'> Don`t have an account yet? <Link to='/create'> Sign up </Link></Typography>
 
             </form>
-        </div >);
-
+        </Box>
+    );
 }
 
 export default Login

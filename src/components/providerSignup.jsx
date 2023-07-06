@@ -14,6 +14,8 @@ const StyledTextField = styled(TextField)({
         fontSize: '1rem',
         fontWeight: '500',
     },
+    fullWidth: 'true',
+    size: 'small',
 
 })
 
@@ -150,9 +152,15 @@ function ProviderSignup() {
 
 
     return (
-        <Box className=" provider-signup">
+        <Box sx={{
+            maxWidth: '600px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+
+        }}>
             <form onSubmit={handleSubmit}>
-                <div className="form-control" >
+                <div >
                     <FormLabel sx={{ fontWeight: '600', color: 'black' }} required> Business Type</FormLabel>
                     <RadioGroup
                         name='businessType'
@@ -164,10 +172,12 @@ function ProviderSignup() {
                             name='businessType'
                             value='Individual'
                             size='small'
+                            fullWidth
                             checked={signupFormData.businessType === 'Individual'}
                             control={
                                 <Radio />
                             }
+
                         >
                         </FormControlLabel>
 
@@ -188,7 +198,7 @@ function ProviderSignup() {
 
                 </div>
 
-                <div className="form-control" >
+                <div  >
                     <StyledTextField
                         label='Name'
                         name="name"
@@ -196,17 +206,17 @@ function ProviderSignup() {
                         required
                         value={signupFormData.name}
                         onChange={handleChange}
-
+                        fullWidth
                     />
                     {formErrors.name && <span className='error'>{formErrors.name}</span>}
                 </div>
 
-                <div className="form-control">
-
+                <div >
                     <StyledTextField
                         label='Email Address'
                         name="email"
                         size='small'
+                        fullWidth
                         type='email'
                         required
                         value={signupFormData.email}
@@ -216,12 +226,13 @@ function ProviderSignup() {
                     {formErrors.email && <span className='error'> {formErrors.email} </span>}
                 </div>
 
-                <div className="form-control">
+                <div>
                     <StyledTextField
                         type="password"
                         label='Password'
                         name="password"
                         size='small'
+                        fullWidth
                         required
                         value={signupFormData.password}
                         onChange={handleChange}
@@ -230,12 +241,12 @@ function ProviderSignup() {
                     {formErrors.password && <span className='error'>{formErrors.password}</span>}
                 </div>
 
-                <div className="form-control">
-
+                <div >
                     <StyledTextField
                         label='Confirm password'
                         type="password"
                         size='small'
+                        fullWidth
                         name="confirmPassword"
                         required
                         value={signupFormData.confirmPassword}
@@ -244,11 +255,12 @@ function ProviderSignup() {
                     {formErrors.confirmPassword && <span className='error'> {formErrors.confirmPassword} </span>}
                 </div>
 
-                <div className="form-control">
+                <div >
                     <StyledTextField
                         label='Contact number'
                         type="number"
                         size='small'
+                        fullWidth
                         name="contactNumber"
                         required
                         value={signupFormData.contactNumber}
@@ -259,11 +271,12 @@ function ProviderSignup() {
                 </div>
 
 
-                <div className="form-control">
+                <div >
                     <StyledTextField
                         label='Address'
                         type=" text"
                         size='small'
+                        fullWidth
                         name='address'
                         required
                         value={signupFormData.address}
@@ -273,12 +286,13 @@ function ProviderSignup() {
                 </div>
 
 
-                <div className="form-control">
+                <div >
                     <StyledTextField
                         label='Select State'
                         select
                         type="text"
                         size='small'
+                        fullWidth
                         name='selectState'
                         value={signupFormData.selectState}
                         onChange={handleChange}
@@ -291,16 +305,18 @@ function ProviderSignup() {
                     {formErrors.selectState && <span className='error'> {formErrors.selectState} </span>}
                 </div>
 
-                <div className="form-control">
+                <div >
                     <StyledTextField
                         label='Select Country'
                         select
                         type=" text"
                         size='small'
+                        fullWidth
                         name="country"
                         required
                         value={signupFormData.country}
                         onChange={handleChange}
+
 
                     >
                         <MenuItem value='usa'>United States of America</MenuItem>
@@ -309,7 +325,7 @@ function ProviderSignup() {
                     {formErrors.country && <span className='error'> {formErrors.country} </span>}
                 </div>
 
-                <div className="form-control">
+                <div >
                     <FormControlLabel
                         label='I accept terms & conditions'
                         control={
@@ -318,6 +334,7 @@ function ProviderSignup() {
                                 checked={signupFormData.termsConditions}
                                 name='termsConditions'
                                 onChange={handleChange}
+                                fullWidth
                             />}
                     ></FormControlLabel>
                     {formErrors.termsConditions && <span className='error'> {formErrors.termsConditions} </span>}
