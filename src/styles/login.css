@@ -1,0 +1,21 @@
+
+@import 'index.css';
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 700px;
+    width: 25%;
+    margin: 3rem 5rem auto auto;
+
+}
+
+p >.forgot-password {
+    float: right;
+    font-weight: bold;
+}
+
+#btn {
+    width: 100%;
+}

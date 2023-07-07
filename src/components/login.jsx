@@ -1,25 +1,12 @@
+
 // import { useState } from 'react'
-import Logo from '../assets/sb-logo-resized.png';
-import { TextField, Button, styled, Box, Typography } from '@mui/material';
-import './CreateAccount'
+// import Logo from '../assets/sb-logo-resized.png';
+import './create-account'
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import '../styles/login.css'
 
 function Login() {
-
-    const StyledTextField = styled(TextField)({
-        padding: '0.1rem',
-        marginTop: '1rem',
-        label: {
-            fontSize: '1rem',
-            fontWeight: '500',
-        },
-    })
-
-    const StyledBox = styled(Box)({
-        display: 'flex',
-        flexDirection: 'column',
-    })
 
     const { register, handleSubmit } = useForm({
         defaultValues: {
@@ -32,58 +19,35 @@ function Login() {
         console.log(data);
     }
     return (
-        <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            maxWidth: '600px',
-            justifyContent: 'center',
-            m: '3rem'
-        }}>
-            <Box
-                src={Logo}
-                component='img'
-                sx={{
-                    width: '180px',
-                    height: '60px',
-                    m: 0,
-                }} />
-            <Typography variant='h1'>Hi, Welcome Back!</Typography>
-
-            <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <StyledBox>
-                    <StyledTextField
-                        label='Email Address'
+        <div >
+            <form className='login-form' onSubmit={handleSubmit(onSubmit)} noValidate>
+                <h2>Hi, Welcome back!</h2>
+                <div className='form-control'>
+                    <label htmlFor="email">Email</label>
+                    <input
                         type="text"
+                        label='Email Address'
                         name='email'
                         required
-                        size='small'
-                        fullWidth
                         {...register('email')}
                     />
+                </div>
 
-                    <StyledTextField
-                        label="Password"
-                        type='password'
+                <div className='form-control'>
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        label='Password'
                         name='password'
                         required
-                        size='small'
-                        fullWidth
-                        {...register('password')}
+                        {...register('email')}
                     />
-                </StyledBox>
-
-                <Link className='forgot-password' to='/'>  <Typography variant='h3' sx={{
-                    mt: 3,
-                    mr: 1,
-                    mb: 1,
-                    display: 'flex',
-                    justifyContent: 'flex-end'
-                }}>Forgot Password? </Typography></Link>
-                <Button id="btn" type='submit' variant='contained' fullWidth> Login </Button>
-                <Typography variant='body2'> Don`t have an account yet? <Link to='/create'> Sign up </Link></Typography>
-
-            </form>
-        </Box>
+                </div>
+                <p><Link className='forgot-password' to='/'> Forgot Password? </Link></p>
+                <button id='btn' type='submit'> Login </button>
+                <h3> Don`t have an account yet? <Link to='/create'> Sign up </Link></h3>
+            </form >
+        </div >
     );
 }
 

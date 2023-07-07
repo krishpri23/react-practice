@@ -1,6 +1,12 @@
 
+.signup-form {
+    max-width: 800px;
+    width: 50%;
+}
+
 .error {
     color: red;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 0.8rem;
+    margin-bottom: 0.3rem;
 }

@@ -1,10 +1,10 @@
 
 import { DevTool } from '@hookform/devtools';
-import { TextField, Box, Button, Typography, FormControlLabel, Checkbox } from '@mui/material';
-import { styled } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
+import '../styles/signup.css'
+import '../index.css'
 
 function UserSignup() {
 
@@ -25,15 +25,6 @@ function UserSignup() {
         termsConditions: yup.bool().oneOf([true], 'You must agree to terms & conditions').required()
     });
 
-
-    const StyledTextField = styled(TextField)({
-        padding: '0.1rem',
-        marginTop: '1rem',
-        label: {
-            fontSize: '1rem',
-            fontWeight: '500',
-        },
-    });
     const { register, handleSubmit, control, formState } = useForm({
         defaultValues: {
             name: '',
@@ -50,97 +41,81 @@ function UserSignup() {
     });
 
 
-    const { errors, isValid, } = formState;
+    const { errors } = formState;
 
 
     const onSubmit = (data) => {
         console.log(data);
     }
     return (
-        <Box sx={{
-            maxWidth: '600px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            width: '50%'
-        }}>
 
+        <div className='signup-form'>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
 
-                <div>
-                    <StyledTextField
-                        label='Name'
+                <div className='form-control'>
+                    <label htmlFor="name">Name</label>
+                    <input
+                        type='text'
                         name="name"
                         id="name"
                         required
-                        size='small'
-                        fullWidth
                         {...register('name')}
                     />
-                    <Typography variant='h4'>{errors.name?.message} </Typography>
+                    <p className='error'>{errors.name?.message} </p>
 
-                </div>
+                </div >
 
-                <div>
-
-                    <StyledTextField
-                        label='Email Address'
+                <div className='form-control'>
+                    <label htmlFor="email">Email Address</label>
+                    <input
                         name="email"
-                        size='small'
-                        fullWidth
                         required
                         {...register('email')}
                     />
-                    <Typography variant='h4'>{errors.email?.message} </Typography>
+                    <p className='error' >{errors.email?.message} </p>
                 </div>
 
 
-                <div >
-
-                    <StyledTextField
+                <div className='form-control'>
+                    <label htmlFor="Password">Password</label>
+                    <input
                         type="password"
-                        label='Password'
                         name="password"
-                        size='small'
-                        fullWidth
                         required
                         {...register('password')}
 
                     />
-                    <Typography variant='h4'>{errors.password?.message} </Typography>
+                    <p className='error'>{errors.password?.message} </p>
                 </div>
 
-                <div>
+                <div className='form-control'>
+                    <label htmlFor="confirm-password">Confirm Password</label>
+                    <input
 
-                    <StyledTextField
-                        label='Confirm password'
                         type="password"
-                        size='small'
-                        fullWidth
+
                         name="confirmPassword"
                         required
                         {...register('confirmPassword')}
 
                     />
-                    <Typography variant='h4'>{errors.confirmPassword?.message} </Typography>
+                    <p className='error'>{errors.confirmPassword?.message} </p>
 
                 </div>
 
-                <div>
-                    <StyledTextField
-                        label='Contact number'
-                        type="number"
-                        size='small'
-                        fullWidth
+                <div className='form-control'>
+                    <label htmlFor="contactNumber">Contact Number</label>
+                    <input
 
+                        type="number"
                         name="contactNumber"
                         required
                         {...register('contactNumber')}
                     />
-                    <Typography variant='h4'>{errors.contactNumber?.message} </Typography>
+                    <p className='error'>{errors.contactNumber?.message} </p>
                 </div>
-                <div >
-                    <FormControlLabel
+                <div className='form-control'>
+                    {/* <FormControlLabel
                         label='I accept terms & conditions'
                         name='termsConditions'
                         control={
@@ -148,13 +123,13 @@ function UserSignup() {
                                 required
 
                             />}
-                    ></FormControlLabel>
+                    ></FormControlLabel> */}
 
                 </div>
-                <Button id="btn" type='submit' variant='contained' fullWidth disabled={!isValid}> Signup </Button>
+                <button type='submit' > Signup </button>
             </form>
             <DevTool control={control} />
-        </Box>
+        </div>
     )
 }
 export default UserSignup
