@@ -1,0 +1,43 @@
+
+
+.provider-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+    
+}
+
+.provider-form > div {
+    /* background-color: blanchedalmond; */
+    padding: 0.3rem;
+    margin: 0 1rem;
+  }
+
+  .provider-form > div:first-child  {
+    display: inline-block;
+    justify-self: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+
+  .radio-label {
+    margin-right: 1rem;
+  }
+  
+  .provider-form > div:nth-child(1), div:nth-child(9), div:nth-child(14) {
+    grid-column: span 2;
+  }
+
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+  
+  button {
+    justify-content: center;
+    margin: 1rem ;
+  }
+
+  .terms-label:hover {
+    cursor: pointer;
+  }

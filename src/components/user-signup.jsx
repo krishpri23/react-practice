@@ -4,14 +4,20 @@ import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 import '../styles/signup.css'
-import '../index.css'
+import '../styles/user-signup.css'
+import { Link, useNavigate } from 'react-router-dom';
 
 function UserSignup() {
 
     const schema = yup.object({
-        name: yup.string().required('Name is required')
+        firstName: yup.string().required('Name is required')
             .matches(/^([^0-9]*)$/, 'Name should not contains numbers.')
             .max(40, 'Name should not exceed 40 characters'),
+        lastName: yup.string().required('Name is required')
+            .matches(/^([^0-9]*)$/, 'Name should not contains numbers.')
+            .max(40, 'Name should not exceed 40 characters'),
+        username: yup.string().required('Username is required')
+            .matches(RegExp('^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$'), 'Must begin with letters and 8-20 characters long'),
         email: yup.string().email('Invalid Email Address').required('Email is required'),
         password: yup.string().required('Password is required')
             .min(8, 'Min of 8 characters')
@@ -21,18 +27,22 @@ function UserSignup() {
             .matches(RegExp('^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!~]).*$'), '1 special character'),
         confirmPassword: yup.string().required('Please confirm your password')
             .oneOf([yup.ref('password')], 'Passwords must match'),
-        contactNumber: yup.string().required('Contact number is required'),
+        contactNumber: yup.string().required('Contact number is required')
+            .min(10, 'Invalid contact number')
+            .max(10, 'Invalid contact number'),
         termsConditions: yup.bool().oneOf([true], 'You must agree to terms & conditions').required()
     });
 
-    const { register, handleSubmit, control, formState } = useForm({
+    const form = useForm({
         defaultValues: {
-            name: '',
+            firstName: '',
+            lastName: '',
+            username: '',
             email: '',
             password: '',
             confirmPassword: '',
             contactNumber: '',
-            termsConditions: '',
+            termsConditions: true,
 
         },
         mode: 'onChange',
@@ -40,30 +50,57 @@ function UserSignup() {
         resolver: yupResolver(schema)
     });
 
-
-    const { errors } = formState;
+    const { register, handleSubmit, control, formState } = form;
+    const { errors, isSubmitted } = formState;
+    const navigate = useNavigate();
 
 
     const onSubmit = (data) => {
         console.log(data);
+        isSubmitted ? navigate('/login') : ' ';
     }
+
+    const onError = (error) => {
+        console.log(error);
+    }
+
     return (
 
-        <div className='signup-form'>
-            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <div>
+            <form className='user-form' onSubmit={handleSubmit(onSubmit, onError)} noValidate >
 
                 <div className='form-control'>
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type='text'
-                        name="name"
-                        id="name"
+                    <label htmlFor="firstName"> First Name</label>
+                    <input type="text"
+                        name="firstName"
+                        id="firstName"
                         required
-                        {...register('name')}
-                    />
-                    <p className='error'>{errors.name?.message} </p>
+                        {...register('firstName')} />
+                    <p className='error'>{errors.firstName?.message} </p>
+                </div>
 
-                </div >
+                <div className='form-control'>
+                    <label htmlFor="lastName">Last Name</label>
+                    <input
+                        name="lastName"
+                        id="lastName"
+                        required
+                        {...register('lastName')}
+                    />
+                    <p className='error'>{errors.lastName?.message} </p>
+                </div>
+                <div className='form-control'>
+                    <label htmlFor="username">Username</label>
+                    <input
+                        name="username"
+                        id="username"
+                        type='text'
+                        required
+                        {...register('username')}
+
+                    />
+                    <p className='error'>{errors.username?.message} </p>
+                </div>
 
                 <div className='form-control'>
                     <label htmlFor="email">Email Address</label>
@@ -97,34 +134,27 @@ function UserSignup() {
                         name="confirmPassword"
                         required
                         {...register('confirmPassword')}
-
                     />
                     <p className='error'>{errors.confirmPassword?.message} </p>
-
                 </div>
-
                 <div className='form-control'>
                     <label htmlFor="contactNumber">Contact Number</label>
                     <input
-
-                        type="number"
+                        type="tel"
                         name="contactNumber"
                         required
                         {...register('contactNumber')}
                     />
                     <p className='error'>{errors.contactNumber?.message} </p>
                 </div>
-                <div className='form-control'>
-                    {/* <FormControlLabel
-                        label='I accept terms & conditions'
-                        name='termsConditions'
-                        control={
-                            <Checkbox
-                                required
-
-                            />}
-                    ></FormControlLabel> */}
-
+                <div >
+                    <input
+                        type="checkbox"
+                        name="termsConditions"
+                        id="termsConditions"
+                        {...register('termsConditions')} />
+                    <label className='terms-label' htmlFor="termsConditions"> <Link href='#'> I agree to terms and conditions </Link> </label>
+                    {/* <p className='error'>{errors.termsConditions?.message} </p> */}
                 </div>
                 <button type='submit' > Signup </button>
             </form>

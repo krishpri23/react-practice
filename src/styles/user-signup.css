@@ -1,0 +1,22 @@
+.user-form {
+    display: grid;
+    max-width: 1000px ;
+    grid-template-columns: repeat(2,1fr);
+    
+}
+
+
+.user-form > div {
+    /* background-color: blanchedalmond; */
+    padding: 0.3rem;
+    margin: 0 1rem;
+  }
+
+  .user-form > div:nth-child(1) {
+    grid-column: span 1;
+  }
+
+  .user-form > div:nth-child(8) {
+    grid-column: span 2;
+  }
+
