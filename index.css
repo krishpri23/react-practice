@@ -18,7 +18,7 @@ body,h1,h2,h3 {
 
 }
 
-/* :root {
+:root {
   font-family: Raleway;
   line-height: 1.5;
   font-weight: 400;
@@ -27,8 +27,9 @@ body,h1,h2,h3 {
   --button-color: #5732F9;
   --secondary-text: white;
   --sub-text:rgb(131, 128, 128);
-  --hover : #DDE2EE
-} */
+  --hover : #DDE2EE;
+  --navbar: #FEF7F2;
+}
 
 /* Login & Signup */
 

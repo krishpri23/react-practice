@@ -11,19 +11,19 @@ function CreateAccount() {
     const [providerForm, setProviderForm] = useState(false);
 
     const handleUserForm = () => {
-        setUserForm(!userForm);
-        setProviderForm(!providerForm);
+        setUserForm(true);
+        setProviderForm(false);
     }
 
     const handleProviderForm = () => {
-        setProviderForm(!providerForm);
-        setUserForm(!userForm);
+        setProviderForm(true);
+        setUserForm(false);
     }
 
     return (
-        <div className='form'>
+        <div className='create-form'>
             <h1> Sign Up</h1>
-            <h4> Already have an account yet? <Link to='/'> Sign in </Link> </h4>
+            <h4> Already have an account yet? <Link to='/login'> Sign in </Link> </h4>
             <h4>Which one are you?</h4>
             <div className='select-type'>
 

@@ -2,6 +2,7 @@
 .signup-form {
     max-width: 800px;
     width: 50%;
+    margin-top: 1rem;
 }
 
 .error {

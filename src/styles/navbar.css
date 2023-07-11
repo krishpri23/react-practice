@@ -1,4 +1,36 @@
-.logo {
-    mix-blend-mode: color-burn;
-    /* background-blend-mode: normal; */
+
+@import '../index.css';
+
+
+
+
+ ul {
+    display: flex;
+    background-color: #FEF7F2 ;
+    border-radius: 3px;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    list-style-type : none;
+    margin: 0.2rem 0.5rem;
+ }
+
+ul > img {
+    margin-right: auto;
+    /* mix-blend-mode: color-burn; */
+    background-blend-mode: normal ;
 }
+
+ul li a {
+    text-decoration: none;
+    border-radius: 4px;
+    color: black !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+ul li a.active {
+background: var(--button-color);
+color: whitesmoke !important;
+}
+
