@@ -5,7 +5,7 @@ import './create-account'
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import '../styles/login.css'
-import banner from '../assets/login.svg'
+import banner from '../assets/search.svg'
 
 
 function Login() {
@@ -50,6 +50,7 @@ function Login() {
                 <button id='btn' type='submit'> Login </button>
                 <h3> Don`t have an account yet? <Link to='/create'> Sign up </Link></h3>
             </form >
+
         </div >
     );
 }

@@ -14,7 +14,6 @@ function AppBar() {
                     <li ><NavLink to='/login'>  Sign in </NavLink> </li>
                     <li ><NavLink to='/create'> Register </NavLink></li>
                 </ul>
-
             </nav>
         </header>
 

@@ -1,21 +1,23 @@
 
 .login {
     display: flex;
-    max-width: 800px;
-    background-color: antiquewhite;
-    justify-content: space-evenly;
+    max-width: 1600px;
     margin: 3rem;
+    gap: 100px;
+    justify-content: space-between;
+
 }
+
 .login img {
-    width: 80%;
-    height: 60%;
+   width: 45%;
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background-color: aquamarine;
+    padding: 10px;
+    max-width: 1000px;
+    width: 30%;   
     
 }
 
@@ -26,5 +28,5 @@ p > .forgot-password {
 }
 
 .form-control {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 }

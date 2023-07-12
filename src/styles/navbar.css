@@ -1,9 +1,6 @@
 
 @import '../index.css';
 
-
-
-
  ul {
     display: flex;
     background-color: #FEF7F2 ;
@@ -17,8 +14,8 @@
 
 ul > img {
     margin-right: auto;
+    width: 200px;
     /* mix-blend-mode: color-burn; */
-    background-blend-mode: normal ;
 }
 
 ul li a {
