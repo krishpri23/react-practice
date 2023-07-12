@@ -15,12 +15,15 @@ import ProviderSignup from './components/createAccount/provider-signup';
 import './index.css'
 import RootLayout from './layouts/root-layout';
 import NotFound from './components/not-found';
+import SearchResults from './components/searchProvider/search-results';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />} >
       <Route index element={<HomePage />} />
       <Route path='login' element={<Login />} />
+      <Route path='searchProviders' element={<SearchResults />} />
+
       <Route path="create" element={<CreateLayout />} >
         <Route path="userSignup" element={<UserSignup />} />
         <Route path="providerSignup" element={<ProviderSignup />} />

@@ -1,0 +1,25 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 30%;
+    margin-left: auto;
+    justify-content: center;
+    margin-top: 3rem;
+    
+}
+
+.search-form button {
+    width: 60%;
+    align-self: center;
+}
+
+.search-form input {
+    margin-bottom: 1rem;
+}
