@@ -65,6 +65,7 @@ function ProviderSignup() {
     const navigate = useNavigate();
     const country = watch('country');
 
+
     const onSubmit = (data) => {
         console.log(data);
         isSubmitted ? navigate('/login') : ''
@@ -219,11 +220,11 @@ function ProviderSignup() {
                         id="country"
                         required
                         {...register('country')}
-                        defaultValue={''}
 
                     >
-                        <option value='usa'>United States of America</option>
-                        <option value='uk'> United Kingdom </option>
+
+                        {/* <option value='usa'>United States of America</option>
+                        <option value='uk'> United Kingdom </option> */}
                     </select>
                     <p className='error'>{errors.country?.message} </p>
                 </div>

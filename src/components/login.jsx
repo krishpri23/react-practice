@@ -5,6 +5,8 @@ import './create-account'
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import '../styles/login.css'
+import banner from '../assets/login.svg'
+
 
 function Login() {
 
@@ -19,7 +21,8 @@ function Login() {
         console.log(data);
     }
     return (
-        <div >
+        <div className='login'>
+            <img src={banner} alt="banner-img" />
             <form className='login-form' onSubmit={handleSubmit(onSubmit)} noValidate>
                 <h2>Hi, Welcome back!</h2>
                 <div className='form-control'>

@@ -1,11 +1,22 @@
 
+.login {
+    display: flex;
+    max-width: 800px;
+    background-color: antiquewhite;
+    justify-content: space-evenly;
+    margin: 3rem;
+}
+.login img {
+    width: 80%;
+    height: 60%;
+}
+
 .login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 700px;
-    width: 25%;
-    margin: 3rem 5rem auto auto;
+    background-color: aquamarine;
+    
 }
 
 p > .forgot-password {
@@ -16,8 +27,4 @@ p > .forgot-password {
 
 .form-control {
     margin-top: 0.5rem;
-}
-
-#btn {
-    width: 100%;
 }
