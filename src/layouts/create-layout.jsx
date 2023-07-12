@@ -1,8 +1,8 @@
 
 import { Link, Outlet } from 'react-router-dom';
-import '../styles/create-account.css'
+import '../styles/create-layout.css'
 
-function CreateAccount() {
+function CreateLayout() {
 
     return (
         <div className='create-form'>
@@ -22,4 +22,4 @@ function CreateAccount() {
     )
 }
 
-export default CreateAccount; 
+export default CreateLayout; 

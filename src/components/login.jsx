@@ -1,7 +1,7 @@
 
 // import { useState } from 'react'
 // import Logo from '../assets/sb-logo-resized.png';
-import './create-account'
+import '../layouts/create-layout'
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import '../styles/login.css'

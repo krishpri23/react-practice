@@ -1,7 +1,7 @@
 // import React from 'react'
 
 import Logo from '../assets/sb-logo-resized.png';
-import '../styles/navbar.css'
+import '../styles/root-layout.css'
 import { Link, NavLink, Outlet } from 'react-router-dom';
 
 function RootLayout() {

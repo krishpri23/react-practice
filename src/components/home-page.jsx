@@ -3,11 +3,12 @@
 function HomePage() {
     return (
         <main>
-            {/* <img src="" alt="" srcset="" /> */}
-            <div>
+            <div className="home">
                 <h2>Home page</h2>
-            </div>
+                <img src="" alt="" />
 
+
+            </div>
 
         </main>
     )
