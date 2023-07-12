@@ -1,3 +1,4 @@
+@import '../index.css';
 
 .login {
     display: flex;
@@ -5,19 +6,30 @@
     margin: 3rem;
     gap: 100px;
     justify-content: space-between;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+}
+
+.banner img {
+    width: 65%;
+    margin-top: -140px; 
+    margin-bottom: -100px;
 
 }
 
-.login img {
-   width: 45%;
+.banner h1 {
+    font-size: 3.5rem;
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    max-width: 1000px;
-    width: 30%;   
+    width: 50%;   
+    margin-top: 5rem;
     
 }
 

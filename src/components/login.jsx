@@ -5,7 +5,7 @@ import './create-account'
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import '../styles/login.css'
-import banner from '../assets/search.svg'
+import banner from '../assets/login.png'
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -42,7 +42,10 @@ function Login() {
 
     return (
         <div className='login'>
-            <img src={banner} alt="banner-img" />
+            <div className='banner'>
+                <img src={banner} alt="banner-img" />
+                <h1> Unlock Spiritual Awakening </h1>
+            </div>
             <form className='login-form' onSubmit={handleSubmit(onSubmit, onError)} noValidate>
                 <h2>Hi, Welcome back!</h2>
                 <div className='form-control'>
