@@ -12,7 +12,7 @@
     margin: 0.2rem 0.5rem;
  }
 
-ul > img {
+ul > a {
     margin-right: auto;
     width: 200px;
     /* mix-blend-mode: color-burn; */
@@ -24,6 +24,8 @@ ul li a {
     color: black !important;
     font-weight: 500;
     padding: 0.5rem 1rem;
+    /* background-color: var(--hover); */
+    border-radius: 15px;
 }
 
 ul li a.active {

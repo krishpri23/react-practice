@@ -2,22 +2,27 @@
 
 import Logo from '../assets/sb-logo-resized.png';
 import '../styles/navbar.css'
-import { NavLink } from 'react-router-dom/dist';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 
-function AppBar() {
+function RootLayout() {
 
     return (
-        <header>
-            <nav>
-                <ul>
-                    <img src={Logo} alt="sb-logo" />
-                    <li ><NavLink to='/login'>  Sign in </NavLink> </li>
-                    <li ><NavLink to='/create'> Register </NavLink></li>
-                </ul>
-            </nav>
-        </header>
+        <div className='root'>
+            <header>
+                <nav>
+                    <ul>
+                        <Link to='/'><img src={Logo} alt="sb-logo" /></Link>
+                        <li ><NavLink to='/login'>  Sign in </NavLink> </li>
+                        <li ><NavLink to='/create'> Register </NavLink></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <Outlet />
+            </main>
+        </div>
 
     )
 }
 
-export default AppBar
+export default RootLayout
