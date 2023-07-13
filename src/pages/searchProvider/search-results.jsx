@@ -16,6 +16,7 @@ function SearchResults() {
                     name="rating"
                     value={rating}
                     onChange={(event, newValue) => {
+                        ``
                         setRating(newValue)
                     }}
                 ></Rating>
@@ -45,6 +46,8 @@ function SearchResults() {
                 ></Rating>
                 <p> Bio </p>
             </div>
+
+
 
         </div>
     )

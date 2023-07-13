@@ -3,7 +3,7 @@
     max-width: 1200px;
     grid-template-columns: repeat(3,1fr);
     margin: 0 auto;
-    background-color: antiquewhite;
+   
 }
 
 .provider-profile {
