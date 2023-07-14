@@ -18,8 +18,11 @@
         grid-column: span 1;
       }
     
-      .user-form > div:nth-child(8) {
+      .user-form > button {
         grid-column: span 2;
+        width: 50%;
+        justify-self: center;
+        margin: 2rem;
       }
     
     

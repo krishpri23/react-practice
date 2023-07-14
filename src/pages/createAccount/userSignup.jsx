@@ -27,9 +27,6 @@ function UserSignup() {
             .matches(RegExp('^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!~]).*$'), '1 special character'),
         confirmPassword: yup.string().required('Please confirm your password')
             .oneOf([yup.ref('password')], 'Passwords must match'),
-        contactNumber: yup.string().required('Contact number is required')
-            .min(10, 'Invalid contact number')
-            .max(10, 'Invalid contact number'),
         termsConditions: yup.bool().oneOf([true], 'You must agree to terms & conditions').required()
     });
 
@@ -41,7 +38,6 @@ function UserSignup() {
             email: '',
             password: '',
             confirmPassword: '',
-            contactNumber: '',
             termsConditions: true,
 
         },
@@ -137,16 +133,7 @@ function UserSignup() {
                     />
                     <p className='error'>{errors.confirmPassword?.message} </p>
                 </div>
-                <div className='form-control'>
-                    <label htmlFor="contactNumber">Contact Number</label>
-                    <input
-                        type="tel"
-                        name="contactNumber"
-                        required
-                        {...register('contactNumber')}
-                    />
-                    <p className='error'>{errors.contactNumber?.message} </p>
-                </div>
+
                 <div >
                     <input
                         type="checkbox"
