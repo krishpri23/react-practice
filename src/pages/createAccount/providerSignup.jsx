@@ -3,8 +3,8 @@ import { DevTool } from '@hookform/devtools';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
-import '/src/styles/signup.css'
-import '/src/styles/providerSignup.css'
+import '/src/styles/Signup/signup.css';
+import '/src/styles/Signup/providerSignup.css'
 import { useNavigate } from 'react-router-dom/';
 import { Link } from 'react-router-dom/dist';
 

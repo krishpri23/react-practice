@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
-import '../styles/homePage.css';
+import '/src/styles/Home/homePage.css';
 
 function HomePage() {
     const form = useForm();

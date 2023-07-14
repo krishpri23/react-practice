@@ -11,7 +11,7 @@ import RootLayout from './layouts/rootLayout';
 import CreateLayout from './layouts/createLayout';
 
 //screens
-import HomePage from './pages/homePage';
+import HomePage from './pages/Home/homePage';
 import UserSignup from './pages/createAccount/userSignup';
 import ProviderSignup from './pages/createAccount/providerSignup';
 import NotFound from './pages/notFound';

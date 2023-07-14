@@ -8,6 +8,18 @@
     justify-content: space-between;
 }
 
+#btn {
+    width: 60%;
+    align-self: center;
+}
+
+.login h3 {
+    margin: 0;
+    align-self: center;
+}
+.login h2 {
+    font-size: 2rem;
+}
 .banner {
     display: flex;
     flex-direction: column;
@@ -22,7 +34,7 @@
 
 
 .banner h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 
 .login-form {
