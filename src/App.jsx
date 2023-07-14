@@ -1,21 +1,26 @@
 
-import Login from './components/login';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider
-
 } from 'react-router-dom';
 
-import HomePage from './components/home-page';
-import CreateLayout from './layouts/create-layout';
-import UserSignup from './components/createAccount/user-signup';
-import ProviderSignup from './components/createAccount/provider-signup';
-import './index.css'
-import RootLayout from './layouts/root-layout';
-import NotFound from './components/not-found';
-import SearchResults from './components/searchProvider/search-results';
+//layout
+import RootLayout from './layouts/rootLayout';
+import CreateLayout from './layouts/createLayout';
+
+//screens
+import HomePage from './pages/homePage';
+import UserSignup from './pages/createAccount/userSignup';
+import ProviderSignup from './pages/createAccount/providerSignup';
+import NotFound from './pages/notFound';
+import SearchResults from './pages/searchProvider/searchResults';
+import Login from './pages/login';
+
+//styles
+import './index.css';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(

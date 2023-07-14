@@ -1,6 +1,6 @@
 import { Rating } from "@mui/material"
 import { useState } from "react";
-import '/src/styles/search-results.css';
+import '/src/styles/searchResults.css';
 import provider from '/src/assets/provider.jpg';
 
 function SearchResults() {

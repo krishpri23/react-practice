@@ -1,6 +1,6 @@
 
 import { Link, Outlet } from 'react-router-dom';
-import '../styles/create-layout.css'
+import '../styles/createLayout.css'
 
 function CreateLayout() {
 

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 import '/src/styles/signup.css'
-import '/src/styles/user-signup.css'
+import '/src/styles/userSignup.css'
 import { Link, useNavigate } from 'react-router-dom';
 
 function UserSignup() {

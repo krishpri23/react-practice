@@ -1,7 +1,5 @@
 
-// import { useState } from 'react'
-// import Logo from '../assets/sb-logo-resized.png';
-import '../layouts/create-layout'
+import '../layouts/createLayout'
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import '../styles/login.css'
@@ -73,7 +71,6 @@ function Login() {
                 <button id='btn' type='submit'> Login </button>
                 <h3> Don`t have an account yet? <Link to='/create'> Sign up </Link></h3>
             </form >
-
         </div >
     );
 }
