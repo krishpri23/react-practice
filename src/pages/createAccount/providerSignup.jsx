@@ -206,26 +206,19 @@ function ProviderSignup() {
                             disabled: country === ''
                         })}
                         defaultValue={''}
-                    >
-                        <option value='california'>California</option>
-                        <option value='newyork'>New York</option>
-                    </select>
+                    />
                     <p className='error'>{errors.selectState?.message} </p>
                 </div>
 
                 <div className='form-control' >
                     <label htmlFor="country">Country</label>
-                    <select
+                    <input
                         name="country"
                         id="country"
                         required
                         {...register('country')}
 
-                    >
-
-                        {/* <option value='usa'>United States of America</option>
-                        <option value='uk'> United Kingdom </option> */}
-                    </select>
+                    />
                     <p className='error'>{errors.country?.message} </p>
                 </div>
 
@@ -245,7 +238,7 @@ function ProviderSignup() {
 
                 <div className='form-control' >
                     <label htmlFor="city">City</label>
-                    <select
+                    <input
                         name="city"
                         id="city"
                         required
@@ -253,11 +246,8 @@ function ProviderSignup() {
                             disabled: country === "",
                         })}
                         defaultValue={''}
-                    >
-                        <option value='mh'>Morgan Hill</option>
-                        <option value='sj'> San Jose </option>
+                    />
 
-                    </select>
                 </div >
 
                 <div >

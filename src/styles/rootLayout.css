@@ -33,3 +33,13 @@ background: var(--button-color);
 color: whitesmoke !important;
 }
 
+
+.logo {
+    width: 200px;
+    height: 200px;
+    margin: -70px;
+}
+
+.signup-btn {
+    display: flex;
+}

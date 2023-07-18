@@ -143,7 +143,7 @@ function UserSignup() {
                     <label className='terms-label' htmlFor="termsConditions"> <Link href='#'> I agree to terms and conditions </Link> </label>
                     {/* <p className='error'>{errors.termsConditions?.message} </p> */}
                 </div>
-                <button type='submit' > Signup </button>
+                <button className='btn' type='submit' > Signup </button>
             </form>
             <DevTool control={control} />
         </div>

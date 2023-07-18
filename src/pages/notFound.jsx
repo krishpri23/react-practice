@@ -1,7 +1,7 @@
 
 import { NavLink } from 'react-router-dom';
 import '../styles/notFound.css';
-import Img from '../assets/Scarecrow.png'
+import Img from '/404.png'
 
 function NotFound() {
     return (

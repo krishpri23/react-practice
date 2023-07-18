@@ -28,7 +28,7 @@ body,h1,h2,h3,h4,p {
   font-family: 'Raleway', sans-serif;
 }
 
- button {
+ .btn {
   text-transform: uppercase;
   padding: 0.9rem 2rem;
   border: none;
@@ -40,9 +40,18 @@ body,h1,h2,h3,h4,p {
   cursor: pointer;
 }
 
+.btn.no-background{
+  text-transform: capitalize;
+  background-color: #FEF7F2;
+  color: #000;
+  border: 2px solid black;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+}
+
 input, select {
   font-size: 1rem;
-  padding: 0.8rem 4.3rem 0.6rem 0.6rem ;
+  padding: 0.8rem 1rem 0.6rem 0.6rem ;
   border: 2px solid var(--placeholder-color);
   border-radius: 0.25rem;
   text-align: left;

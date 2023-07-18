@@ -1,22 +1,29 @@
 
 import '../layouts/createLayout'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Form } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import '../styles/login.css'
-import banner from '../assets/login.png'
+import banner from '/login.png'
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 
-function Login() {
 
-    const navigate = useNavigate();
+
+// HelloRavi23!
+
+function Login() {
 
     const schema = yup.object({
         email: yup.string().email('Invalid email address').required('Email is required'),
         password: yup.string().required('Password is required')
+            .min(8, 'Min of 8 characters')
+            .matches(RegExp('(.*[a-z].*)'), '1 lowercase letter')
+            .matches(RegExp('(.*[A-Z].*)'), '1 uppercase letter')
+            .matches(RegExp('(.*\\d.*)'), '1 number')
+            .matches(RegExp('^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!~]).*$'), '1 special character'),
     })
 
-    const { register, handleSubmit, formState } = useForm({
+    const { register, formState } = useForm({
         defaultValues: {
             'email': '',
             'password': '',
@@ -26,17 +33,8 @@ function Login() {
         resolver: yupResolver(schema)
     })
 
-    const { errors } = formState;
+    const { errors } = formState
 
-    const onSubmit = (data) => {
-        console.log(data);
-        navigate('/');
-
-    }
-
-    const onError = (error) => {
-        console.log(error);
-    }
 
     return (
         <div className='login'>
@@ -44,7 +42,7 @@ function Login() {
                 <img src={banner} alt="banner-img" />
                 <h1> Unlock Spiritual Awakening </h1>
             </div>
-            <form className='login-form' onSubmit={handleSubmit(onSubmit, onError)} noValidate>
+            <Form className='login-form' method='post' noValidate>
                 <h2>Hi, Welcome back!</h2>
                 <div className='form-control'>
                     <label htmlFor="email">Email</label>
@@ -68,11 +66,12 @@ function Login() {
                     <p className='error'>{errors.password?.message} </p>
                 </div>
                 <p><Link className='forgot-password' to='/'> Forgot Password? </Link></p>
-                <button id='btn' type='submit'> Login </button>
+                <button className='btn' type='submit'> Login </button>
                 <h3> Don`t have an account yet? <Link to='/create'> Sign up </Link></h3>
-            </form >
+            </Form >
         </div >
     );
 }
 
 export default Login
+

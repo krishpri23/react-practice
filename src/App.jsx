@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 //layout
-import RootLayout from './layouts/rootLayout';
+import RootLayout, { RootLoader } from './layouts/rootLayout';
 import CreateLayout from './layouts/createLayout';
 
 //screens
@@ -21,12 +21,15 @@ import Login from './pages/login';
 //styles
 import './index.css';
 
+//utils
+import { loginAction } from './utils/actions';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout />} >
+    <Route path='/' element={<RootLayout />} loader={RootLoader}  >
       <Route index element={<HomePage />} />
-      <Route path='login' element={<Login />} />
+      <Route path='login' element={<Login />} action={loginAction} />
       <Route path='searchProviders' element={<SearchResults />} />
 
       <Route path="create" element={<CreateLayout />} >

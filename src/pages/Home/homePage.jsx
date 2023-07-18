@@ -50,7 +50,7 @@ function HomePage() {
                         <option value="hindu">Hindu priest</option>
                         <option value="reiki">Reiki healer</option>
                     </select>
-                    <button type='submit'> Search </button>
+                    <button className='btn' type='submit'> Search </button>
                 </form>
 
             </div>

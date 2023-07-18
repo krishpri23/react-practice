@@ -1,7 +1,7 @@
 import { Rating } from "@mui/material"
 import { useState } from "react";
 import '/src/styles/searchResults.css';
-import provider from '/src/assets/provider.jpg';
+import provider from '/provider.jpg';
 
 function SearchResults() {
     const [rating, setRating] = useState(3);
