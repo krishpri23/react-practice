@@ -21,13 +21,15 @@ body,h1,h2,h3,h4,p {
 
 :root {
   --placeholder-color: #CED3DF;
-  --button-color: #5732F9;
+  --button-color: #283593;
+  /* --button-color: #5732F9; */
   --secondary-text: white;
   --sub-text:rgb(131, 128, 128);
   --hover : #DDE2EE;
   font-family: 'Raleway', sans-serif;
 }
 
+/* button styles */
  .btn {
   text-transform: uppercase;
   padding: 0.9rem 2rem;
@@ -40,13 +42,17 @@ body,h1,h2,h3,h4,p {
   cursor: pointer;
 }
 
-.btn.no-background{
+ .profile , .logout{
   text-transform: capitalize;
-  background-color: #FEF7F2;
-  color: #000;
-  border: 2px solid black;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
   padding: 0.5rem 1.5rem;
-  border-radius: 10px;
+  border-radius: 15px;
+}
+
+ .logout {
+  background-color: rgb(210, 91, 91);
 }
 
 input, select {
@@ -66,6 +72,7 @@ h1 {
 h2 {
   font-size: 1.2rem;
 }
+
 /* tags with links*/
 h3 {
   font-size: 0.9rem;

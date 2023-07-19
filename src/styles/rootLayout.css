@@ -43,3 +43,7 @@ color: whitesmoke !important;
 .signup-btn {
     display: flex;
 }
+
+.btn.no-background {
+    background-color: #283593;
+}

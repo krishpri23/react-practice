@@ -22,14 +22,14 @@ import Login from './pages/login';
 import './index.css';
 
 //utils
-import { loginAction } from './utils/actions';
+import { loginAction, logoutAction } from './utils/actions';
+import Logout from './pages/logout';
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout />} loader={RootLoader}  >
+    <Route path='/' element={<RootLayout />} loader={RootLoader} >
       <Route index element={<HomePage />} />
-      <Route path='login' element={<Login />} action={loginAction} />
       <Route path='searchProviders' element={<SearchResults />} />
 
       <Route path="create" element={<CreateLayout />} >
@@ -37,6 +37,8 @@ const router = createBrowserRouter(
         <Route path="providerSignup" element={<ProviderSignup />} />
       </Route>
 
+      <Route path='login' element={<Login />} action={loginAction} />
+      <Route path='logout' element={<Logout />} action={logoutAction} />
       <Route path='*' element={<NotFound />} />
     </Route >
   )

@@ -17,7 +17,7 @@
     margin-right: 1rem;
   }
   
-  .provider-form > div:nth-child(1), div:nth-child(9) {
+  .provider-form > div:nth-child(1), div:nth-child(7) {
     grid-column: span 2;
   }
 

@@ -1,6 +1,6 @@
 
 import { redirect } from "react-router-dom";
-import { saveToLocalStorage } from '../utils/localStorage';
+import { saveToLocalStorage, deleteItem } from '../utils/localStorage';
 
 
 export const loginAction = async ({ request }) => {
@@ -11,4 +11,9 @@ export const loginAction = async ({ request }) => {
     saveToLocalStorage({ key: formData.get("email"), value: formData.get("password") })
 
     return redirect('/');
+}
+
+export const logoutAction = async ({ key }) => {
+    deleteItem({ key: 'login' });
+    return redirect('/login');
 }

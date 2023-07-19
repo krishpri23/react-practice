@@ -10,14 +10,9 @@ import { Link, useNavigate } from 'react-router-dom';
 function UserSignup() {
 
     const schema = yup.object({
-        firstName: yup.string().required('Name is required')
+        name: yup.string().required('Name is required')
             .matches(/^([^0-9]*)$/, 'Name should not contains numbers.')
             .max(40, 'Name should not exceed 40 characters'),
-        lastName: yup.string().required('Name is required')
-            .matches(/^([^0-9]*)$/, 'Name should not contains numbers.')
-            .max(40, 'Name should not exceed 40 characters'),
-        username: yup.string().required('Username is required')
-            .matches(RegExp('^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$'), 'Must begin with letters and 8-20 characters long'),
         email: yup.string().email('Invalid Email Address').required('Email is required'),
         password: yup.string().required('Password is required')
             .min(8, 'Min of 8 characters')
@@ -32,7 +27,7 @@ function UserSignup() {
 
     const form = useForm({
         defaultValues: {
-            firstName: '',
+            name: '',
             lastName: '',
             username: '',
             email: '',
@@ -66,36 +61,13 @@ function UserSignup() {
             <form className='user-form' onSubmit={handleSubmit(onSubmit, onError)} noValidate >
 
                 <div className='form-control'>
-                    <label htmlFor="firstName"> First Name</label>
+                    <label htmlFor="name"> Name</label>
                     <input type="text"
-                        name="firstName"
-                        id="firstName"
+                        name="name"
+                        id="name"
                         required
-                        {...register('firstName')} />
-                    <p className='error'>{errors.firstName?.message} </p>
-                </div>
-
-                <div className='form-control'>
-                    <label htmlFor="lastName">Last Name</label>
-                    <input
-                        name="lastName"
-                        id="lastName"
-                        required
-                        {...register('lastName')}
-                    />
-                    <p className='error'>{errors.lastName?.message} </p>
-                </div>
-                <div className='form-control'>
-                    <label htmlFor="username">Username</label>
-                    <input
-                        name="username"
-                        id="username"
-                        type='text'
-                        required
-                        {...register('username')}
-
-                    />
-                    <p className='error'>{errors.username?.message} </p>
+                        {...register('name')} />
+                    <p className='error'>{errors.name?.message} </p>
                 </div>
 
                 <div className='form-control'>

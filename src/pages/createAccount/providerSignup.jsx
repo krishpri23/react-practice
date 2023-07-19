@@ -11,14 +11,9 @@ import { Link } from 'react-router-dom/dist';
 
 function ProviderSignup() {
     const schema = yup.object({
-        firstName: yup.string().required('Name is required')
+        name: yup.string().required('Name is required')
             .matches(/^([^0-9]*)$/, 'Name should not contains numbers.')
             .max(40, 'Name should not exceed 40 characters'),
-        lastName: yup.string().required('Name is required')
-            .matches(/^([^0-9]*)$/, 'Name should not contains numbers.')
-            .max(40, 'Name should not exceed 40 characters'),
-        username: yup.string().required('Username is required')
-            .matches(RegExp('^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$'), 'Must begin with letters and 8-20 characters long'),
         email: yup.string().email('Invalid Email Address').required('Email is required'),
         password: yup.string().required('Password is required')
             .min(8, 'Min of 8 characters')
@@ -40,7 +35,7 @@ function ProviderSignup() {
     const form = useForm({
         defaultValues: {
             businessType: '',
-            firstName: '',
+            name: '',
             lastName: '',
             username: '',
             email: '',
@@ -60,10 +55,9 @@ function ProviderSignup() {
         resolver: yupResolver(schema)
     });
 
-    const { register, handleSubmit, control, watch, formState, reset } = form;
+    const { register, handleSubmit, control, formState, reset } = form;
     const { errors, isSubmitted } = formState;
     const navigate = useNavigate();
-    const country = watch('country');
 
 
     const onSubmit = (data) => {
@@ -103,37 +97,15 @@ function ProviderSignup() {
                 </div>
 
                 <div className='form-control'>
-                    <label htmlFor="firstName"> First Name</label>
+                    <label htmlFor="name"> Name</label>
                     <input type="text"
-                        name="firstName"
-                        id="firstName"
+                        name="name"
+                        id="name"
                         required
-                        {...register('firstName')} />
-                    <p className='error'>{errors.firstName?.message} </p>
-                </div>
-                <div className='form-control'>
-                    <label htmlFor="lastName">Last Name</label>
-                    <input
-                        name="lastName"
-                        id="lastName"
-                        required
-                        {...register('lastName')}
-                    />
-                    <p className='error'>{errors.lastName?.message} </p>
+                        {...register('name')} />
+                    <p className='error'>{errors.name?.message} </p>
                 </div>
 
-                <div className='form-control'>
-                    <label htmlFor="username">Username</label>
-                    <input
-                        name="username"
-                        id="username"
-                        type='text'
-                        required
-                        {...register('username')}
-
-                    />
-                    <p className='error'>{errors.username?.message} </p>
-                </div>
                 <div className='form-control'>
                     <label htmlFor="email">Email Address</label>
                     <input
@@ -198,13 +170,11 @@ function ProviderSignup() {
                 </div>
                 <div className='form-control'>
                     <label htmlFor="selectState">State</label>
-                    <select
+                    <input
                         name='selectState'
                         id="selectState"
                         required
-                        {...register('selectState', {
-                            disabled: country === ''
-                        })}
+                        {...register('selectState')}
                         defaultValue={''}
                     />
                     <p className='error'>{errors.selectState?.message} </p>
@@ -228,9 +198,7 @@ function ProviderSignup() {
                         name="areaCode"
                         id="areaCode"
                         required
-                        {...register('areaCode', {
-                            disabled: country === ''
-                        })}
+                        {...register('areaCode')}
                         defaultValue={''}
                     />
                     <p className='error'>{errors.areaCode?.message} </p>
@@ -242,9 +210,7 @@ function ProviderSignup() {
                         name="city"
                         id="city"
                         required
-                        {...register('city', {
-                            disabled: country === "",
-                        })}
+                        {...register('city')}
                         defaultValue={''}
                     />
 
@@ -259,7 +225,7 @@ function ProviderSignup() {
                     <label className='terms-label' htmlFor="termsConditions"> <Link href='#'> I agree to terms and conditions </Link> </label>
                     {/* <p className='error'>{errors.termsConditions?.message} </p> */}
                 </div>
-                <button type='submit' > Signup </button>
+                <button className='btn' type='submit' > Signup </button>
             </form >
             <DevTool control={control}></DevTool>
         </div >
