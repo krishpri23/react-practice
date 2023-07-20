@@ -37,39 +37,41 @@ function Login() {
 
 
     return (
-        <div className='login'>
-            <div className='banner'>
-                <img src={banner} alt="banner-img" />
-                <h1> Unlock Spiritual Awakening </h1>
-            </div>
-            <Form className='login-form' method='post' noValidate>
-                <h2>Hi, Welcome back!</h2>
-                <div className='form-control'>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="text"
-                        name='email'
-                        required
-                        {...register('email')}
-                    />
-                    <p className='error' >{errors.email?.message} </p>
+        <main>
+            <div className='login'>
+                <div className='banner'>
+                    <img src={banner} alt="banner-img" />
+                    <h1> Unlock Spiritual Awakening </h1>
                 </div>
+                <Form className='login-form' method='post' noValidate>
+                    <h2>Hi, Welcome back!</h2>
+                    <div className='form-control'>
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            name='email'
+                            required
+                            {...register('email')}
+                        />
+                        <p className='error' >{errors.email?.message} </p>
+                    </div>
 
-                <div className='form-control'>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        name='password'
-                        required
-                        {...register('password')}
-                    />
-                    <p className='error'>{errors.password?.message} </p>
-                </div>
-                <p><Link className='forgot-password' to='/'> Forgot Password? </Link></p>
-                <button className='btn' type='submit'> Login </button>
-                <h3> Don`t have an account yet? <Link to='/create'> Sign up </Link></h3>
-            </Form >
-        </div >
+                    <div className='form-control'>
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            name='password'
+                            required
+                            {...register('password')}
+                        />
+                        <p className='error'>{errors.password?.message} </p>
+                    </div>
+                    <p><Link className='forgot-password' to='/'> Forgot Password? </Link></p>
+                    <button className='btn' type='submit'> Login </button>
+                    <h3> Don`t have an account yet? <Link to='/create'> Sign up </Link></h3>
+                </Form >
+            </div >
+        </main>
     );
 }
 

@@ -57,7 +57,7 @@ function UserSignup() {
 
     return (
 
-        <div>
+        <main>
             <form className='user-form' onSubmit={handleSubmit(onSubmit, onError)} noValidate >
 
                 <div className='form-control'>
@@ -118,7 +118,7 @@ function UserSignup() {
                 <button className='btn' type='submit' > Signup </button>
             </form>
             <DevTool control={control} />
-        </div>
+        </main>
     )
 }
 export default UserSignup

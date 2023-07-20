@@ -71,7 +71,7 @@ function ProviderSignup() {
     }
 
     return (
-        <div>
+        <main>
             <form className='provider-form' onSubmit={handleSubmit(onSubmit, onError)} noValidate>
                 <div className='form-control' >
                     <input
@@ -228,7 +228,7 @@ function ProviderSignup() {
                 <button className='btn' type='submit' > Signup </button>
             </form >
             <DevTool control={control}></DevTool>
-        </div >
+        </main >
 
     )
 }
