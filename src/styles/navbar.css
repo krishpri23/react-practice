@@ -3,7 +3,7 @@
 
  ul {
     display: flex;
-    background-color: #FEF7F2 ;
+    background-color:var(--navbar);
     border-radius: 3px;
     justify-content: end;
     align-items: center;
@@ -24,7 +24,6 @@ ul li a {
     color: black !important;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    /* background-color: var(--hover); */
     border-radius: 15px;
 }
 
@@ -45,5 +44,21 @@ color: whitesmoke !important;
 }
 
 .btn.no-background {
-    background-color: #283593;
+    background-color: var(--button-color);
 }
+
+
+.btn.profile , .btn.logout{
+    text-transform: capitalize;
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    margin-left: 1rem;
+    white-space: nowrap;
+  }
+
+  .btn.logout {
+    background-color: var(--logout);
+  }

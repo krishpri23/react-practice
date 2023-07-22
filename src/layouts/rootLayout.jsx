@@ -1,6 +1,4 @@
 // import React from 'react'
-
-import '../styles/rootLayout.css'
 import { Outlet, useLoaderData } from 'react-router-dom';
 import { fetchData } from '../utils/localStorage';
 import NavBar from '../components/NavBar';

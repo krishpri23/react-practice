@@ -1,11 +1,17 @@
+//rrd
+import { Link, useNavigate } from 'react-router-dom';
 
+//rhf library
 import { DevTool } from '@hookform/devtools';
 import { useForm } from 'react-hook-form';
+
+//auth
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
-import '/src/styles/Signup/signup.css';
+
+//styles
 import '/src/styles/Signup/userSignup.css'
-import { Link, useNavigate } from 'react-router-dom';
+
 
 function UserSignup() {
 
@@ -113,7 +119,7 @@ function UserSignup() {
                         id="termsConditions"
                         {...register('termsConditions')} />
                     <label className='terms-label' htmlFor="termsConditions"> <Link href='#'> I agree to terms and conditions </Link> </label>
-                    {/* <p className='error'>{errors.termsConditions?.message} </p> */}
+                    <p className='error terms'>{errors.termsConditions?.message} </p>
                 </div>
                 <button className='btn' type='submit' > Signup </button>
             </form>

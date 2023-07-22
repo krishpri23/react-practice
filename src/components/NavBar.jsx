@@ -1,16 +1,16 @@
 import { Link, NavLink, Form } from 'react-router-dom';
 import Logo from '/sacredbox-logo.png';
-
+import '../styles/navbar.css';
 
 function NavBar({ login }) {
     return (
-        <nav>
+        <nav className='navbar'>
             <ul>
                 <Link to='/'><img className='logo' src={Logo} alt="sb-logo" /></Link>
                 {
                     login?.email && login ?
                         (
-                            <Form action='/logout' method='post' onSubmit={(event) => {
+                            <Form className='signup-btn' action='/logout' method='post' onSubmit={(event) => {
                                 if (!confirm('Are you sure you want to logout?')) {
                                     event.preventDefault();
                                 }

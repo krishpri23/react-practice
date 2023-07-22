@@ -52,7 +52,6 @@ function HomePage() {
                     </select>
                     <button className='btn' type='submit'> Search </button>
                 </form>
-
             </div>
 
         </main>

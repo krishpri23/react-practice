@@ -1,13 +1,11 @@
 
-import '../layouts/createLayout'
 import { Link, Form } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import '../styles/login.css'
 import banner from '/login.png'
+//auth
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
-
-
 
 // HelloRavi23!
 
@@ -41,10 +39,10 @@ function Login() {
             <div className='login'>
                 <div className='banner'>
                     <img src={banner} alt="banner-img" />
-                    <h1> Unlock Spiritual Awakening </h1>
+                    <h1 className='banner title'>  </h1>
                 </div>
                 <Form className='login-form' method='post' noValidate>
-                    <h2>Hi, Welcome back!</h2>
+                    <h2 className='title'>Hi, Welcome back!</h2>
                     <div className='form-control'>
                         <label htmlFor="email">Email</label>
                         <input
@@ -68,7 +66,7 @@ function Login() {
                     </div>
                     <p><Link className='forgot-password' to='/'> Forgot Password? </Link></p>
                     <button className='btn' type='submit'> Login </button>
-                    <h3> Don`t have an account yet? <Link to='/create'> Sign up </Link></h3>
+                    <h3 > Don`t have an account yet? <Link to='/create'> Sign up </Link></h3>
                 </Form >
             </div >
         </main>

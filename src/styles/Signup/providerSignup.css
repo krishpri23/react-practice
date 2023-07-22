@@ -4,11 +4,11 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     max-width: 1000px;
+  
     
 }
 
 .provider-form > div {
-    /* background-color: blanchedalmond; */
     padding: 0.3rem;
     margin: 0 1rem;
   }

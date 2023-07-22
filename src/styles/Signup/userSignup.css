@@ -1,15 +1,14 @@
 
 
-@media (min-width:900px) {
+@media (min-width:800px) {
     .user-form {
         display: grid;
         max-width: 1000px ;
         grid-template-columns: repeat(2,1fr);
-
+      
     }
     
     .user-form > div {
-        /* background-color: blanchedalmond; */
         padding: 0.3rem;
         margin: 0 1rem;
       }
@@ -24,14 +23,13 @@
         justify-self: center;
         margin: 2rem;
       }
-    
-    
+  
 }
 
   @media (max-width: 480px)  {
     .user-form {
         display: flex;
         flex-direction: column;
-        width: 100%; 
+       
     }
   }

@@ -1,13 +1,19 @@
+//rrd
+import { useNavigate, Link } from 'react-router-dom/';
 
+// rhf library
 import { DevTool } from '@hookform/devtools';
 import { useForm } from 'react-hook-form';
-import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
-import '/src/styles/Signup/signup.css';
-import '/src/styles/Signup/providerSignup.css'
-import { useNavigate } from 'react-router-dom/';
-import { Link } from 'react-router-dom/dist';
 
+//auth
+import * as yup from "yup";
+
+//styles
+import '/src/styles/Signup/providerSignup.css'
+
+//json
+import country from '/src/data/country.json';
 
 function ProviderSignup() {
     const schema = yup.object({
@@ -29,7 +35,8 @@ function ProviderSignup() {
         country: yup.string().required('Country is required'),
         city: yup.string().required('City is required'),
         areaCode: yup.string().required('Area code is required'),
-        termsConditions: yup.bool().oneOf([true], 'You must agree to terms & conditions')
+        termsConditions: yup.bool().oneOf([true], 'You must agree to terms & conditions'),
+        businessType: yup.string().required('Radio option is required')
     });
 
     const form = useForm({
@@ -70,6 +77,8 @@ function ProviderSignup() {
         console.log('form errors ', errors);
     }
 
+
+
     return (
         <main>
             <form className='provider-form' onSubmit={handleSubmit(onSubmit, onError)} noValidate>
@@ -94,6 +103,7 @@ function ProviderSignup() {
                     />
                     <label className='radio-label' htmlFor="Business"> Business</label>
 
+                    <p className='error radio'>{errors.businessType?.message} </p>
                 </div>
 
                 <div className='form-control'>
@@ -182,13 +192,20 @@ function ProviderSignup() {
 
                 <div className='form-control' >
                     <label htmlFor="country">Country</label>
-                    <input
+                    <select
                         name="country"
                         id="country"
                         required
                         {...register('country')}
+                    >
+                        <option value=''>Select a country</option>
+                        {
+                            country.map((item) => (
+                                <option key={item.code} value={item.name}> {item.name} </option>
+                            ))
+                        }
 
-                    />
+                    </select>
                     <p className='error'>{errors.country?.message} </p>
                 </div>
 
@@ -213,7 +230,7 @@ function ProviderSignup() {
                         {...register('city')}
                         defaultValue={''}
                     />
-
+                    <p className='error'>{errors.city?.message} </p>
                 </div >
 
                 <div >
@@ -223,7 +240,7 @@ function ProviderSignup() {
                         id="termsConditions"
                         {...register('termsConditions')} />
                     <label className='terms-label' htmlFor="termsConditions"> <Link href='#'> I agree to terms and conditions </Link> </label>
-                    {/* <p className='error'>{errors.termsConditions?.message} </p> */}
+                    <p className='error terms'>{errors.termsConditions?.message} </p>
                 </div>
                 <button className='btn' type='submit' > Signup </button>
             </form >

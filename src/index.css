@@ -21,11 +21,13 @@ body,h1,h2,h3,h4,p {
 
 :root {
   --placeholder-color: #CED3DF;
+  --navbar:  #FEF7F2 ;
   --button-color: #283593;
   /* --button-color: #5732F9; */
   --secondary-text: white;
   --sub-text:rgb(131, 128, 128);
   --hover : #DDE2EE;
+  --logout: rgb(210, 91, 91);
   font-family: 'Raleway', sans-serif;
 }
 
@@ -42,17 +44,9 @@ body,h1,h2,h3,h4,p {
   cursor: pointer;
 }
 
- .profile , .logout{
-  text-transform: capitalize;
-  background-color: var(--button-color);
-  color: white;
-  border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 15px;
-}
 
  .logout {
-  background-color: rgb(210, 91, 91);
+  background-color: var(--logout-buttton);
 }
 
 input, select {
