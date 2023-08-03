@@ -92,10 +92,9 @@
 .grid-layout {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
+  grid-template-rows: 200px 200px;
   /* justify-content: stretch; */
-  gap: 1rem;
-  background-color: #848181;
+  gap: 4rem;
   padding: 1rem;
 }
 

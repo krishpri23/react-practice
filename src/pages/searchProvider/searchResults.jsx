@@ -1,56 +1,48 @@
-import { Rating } from "@mui/material"
+import { useEffect } from "react";
+import "/src/styles/searchResults.css";
+import ProviderProfile from "../../components/providerProfileLists";
 import { useState } from "react";
-import '/src/styles/searchResults.css';
-import provider from '/provider.jpg';
 
 function SearchResults() {
-    const [rating, setRating] = useState(3);
+  //   const [rating, setRating] = useState(3);
 
-    return (
-        <div className="search-results">
+  const [userData, setUserData] = useState();
 
-            <div className="provider-profile">
-                <img src={provider} alt="a man" />
-                <h2> Ravi Shashtri </h2>
-                <Rating
-                    name="rating"
-                    value={rating}
-                    onChange={(event, newValue) => {
-                        ``
-                        setRating(newValue)
-                    }}
-                ></Rating>
-                <p> Bio </p>
-            </div>
-            <div className="provider-profile">
-                <img src={provider} alt="a man" />
-                <h2> Ravi Shashtri </h2>
-                <Rating
-                    name="rating"
-                    value={rating}
-                    onChange={(event, newValue) => {
-                        setRating(newValue)
-                    }}
-                ></Rating>
-                <p> Bio </p>
-            </div>
-            <div className="provider-profile">
-                <img src={provider} alt="a man" />
-                <h2> Ravi Shashtri </h2>
-                <Rating
-                    name="rating"
-                    value={rating}
-                    onChange={(event, newValue) => {
-                        setRating(newValue)
-                    }}
-                ></Rating>
-                <p> Bio </p>
-            </div>
+  const handleApiRequest = () => {
+    fetch("https://randomuser.me/api/?nat=us&results=10")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserData(data.results);
+      });
+  };
 
+  useEffect(() => {
+    handleApiRequest();
+  }, []);
 
+  return (
+    <section>
+      {userData &&
+        userData.map((info, key) => {
+          const {
+            name: { first, last },
+            location: { city, state },
+            picture: { medium },
+          } = info;
 
-        </div>
-    )
+          return (
+            <ProviderProfile
+              key={key}
+              name={`${first}  ${last}`}
+              city={city}
+              state={state}
+              profilePicture={medium}
+            />
+          );
+        })}
+    </section>
+  );
 }
 
-export default SearchResults
+export default SearchResults;
