@@ -1,6 +1,4 @@
-
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
-
 
 /*preset*/
 
@@ -12,27 +10,33 @@
   font-kerning: auto;
 }
 
-body,h1,h2,h3,h4,p {
+body,
+h1,
+h2,
+h3,
+h4,
+p {
   margin: 0;
   padding: 0;
+  font-family: "Raleway";
 }
 
 /* Typography */
 
 :root {
-  --placeholder-color: #CED3DF;
-  --navbar:  #FEF7F2 ;
+  --placeholder-color: #ced3df;
+  --navbar: #fef7f2;
   --button-color: #283593;
   /* --button-color: #5732F9; */
   --secondary-text: white;
-  --sub-text:rgb(131, 128, 128);
-  --hover : #DDE2EE;
+  --sub-text: rgb(131, 128, 128);
+  --hover: #dde2ee;
   --logout: rgb(210, 91, 91);
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 /* button styles */
- .btn {
+#btn {
   text-transform: uppercase;
   padding: 0.9rem 2rem;
   border: none;
@@ -42,26 +46,26 @@ body,h1,h2,h3,h4,p {
   font-weight: bold;
   font-size: 0.9rem;
   cursor: pointer;
+  text-decoration: none;
+  max-width: 50%;
 }
 
-
- .logout {
+.logout {
   background-color: var(--logout-buttton);
 }
 
-input, select {
+input,
+select {
   font-size: 1rem;
-  padding: 0.8rem 1rem 0.6rem 0.6rem ;
+  padding: 0.8rem 1rem 0.6rem 0.6rem;
   border: 2px solid var(--placeholder-color);
   border-radius: 0.25rem;
   text-align: left;
   margin-bottom: 0.2rem;
- 
-} 
+}
 h1 {
   font-size: 1.5rem;
   font-weight: 600;
-  
 }
 h2 {
   font-size: 1.2rem;
@@ -78,7 +82,6 @@ h4 {
   font-weight: 500;
   margin: 0.5rem 0;
 }
-
 
 p {
   font-size: 0.8rem;
