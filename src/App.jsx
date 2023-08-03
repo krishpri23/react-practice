@@ -12,7 +12,9 @@ import CreateLayout from "./pages/signup";
 //screens
 import HomePage from "./pages/Home/homePage";
 import NotFound from "./pages/notFound";
-import SearchResults from "./pages/searchProvider/searchResults";
+import SearchResults, {
+  loadSearchResults,
+} from "./pages/searchProvider/searchResults";
 import Login from "./pages/login";
 
 //styles
@@ -30,6 +32,7 @@ const router = createBrowserRouter(
         path="searchResults"
         element={<SearchResults />}
         action={searchAction}
+        loader={loadSearchResults}
       />
 
       <Route path="create" element={<CreateLayout />} />
