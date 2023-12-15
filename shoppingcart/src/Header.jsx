@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <nav className="bg-slate-700 px-6 py-3 flex justify-around text-white text-xl  items-center ">
-      Link
-      <h1> Shopping cart </h1>
+      <Link to="/">Shopping cart </Link>
       <input
         type="text"
         placeholder="Search a product..."

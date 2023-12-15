@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import "./index.css";
 import Home from "./Home";
@@ -9,8 +9,10 @@ function App() {
     <BrowserRouter>
       <Header />
       <div className=" w-full mx-auto bg-green-200">
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
       </div>
     </BrowserRouter>
   );
