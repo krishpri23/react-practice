@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import quiz from "./data";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [index, setIndex] = useState(0);
+  const [score, setScore] = useState(0);
+
+  const handleAnswer = (isCorrect, e) => {
+    if (isCorrect) {
+      e.target.classList.add("correct");
+      setScore((prev) => prev + 1);
+    } else {
+      e.target.classList.add("incorrect");
+    }
+  };
+
+  const handleNext = () => {
+    setIndex((prev) => prev + 1);
+  };
+
+  const resetGame = () => {
+    setScore(0);
+    setIndex(0);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container">
+      <h1 className="title"> React Quiz </h1>
+      <div className="quiz">
+        {index < quiz.length ? (
+          <>
+            <h2 className="question">
+              {" "}
+              {index + 1}. {quiz[index].question}{" "}
+            </h2>
+            <div className="options">
+              {quiz[index].answers?.map((option) => (
+                <button
+                  className="option-btn"
+                  key={option.text}
+                  onClick={(e) => handleAnswer(option.correct, e)}
+                >
+                  {" "}
+                  {option.text}{" "}
+                </button>
+              ))}
+            </div>
+            <button className="next-btn" style={{}} onClick={handleNext}>
+              {" "}
+              Next{" "}
+            </button>
+          </>
+        ) : (
+          <>
+            <h2> {`You have scored ${score} out of ${quiz.length}`} </h2>
+            <button onClick={resetGame}> Play again </button>
+          </>
+        )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
