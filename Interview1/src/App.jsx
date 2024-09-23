@@ -26,26 +26,46 @@ function App() {
   const [activeLight, setActiveLight] = useState("red");
   const [delay, setDelay] = useState(0);
   const [lapsedTime, setLapsedTime] = useState(0);
+  const [remainingTime, setRemainingTime] = useState(0);
 
   // this logic is for setting light color
   useEffect(() => {
-    const interval = setTimeout(() => {
-      setActiveLight((prev) => trafficLight[prev].next);
-    }, trafficLight[activeLight].time * 1000);
+    // This works when the timeout is completed so when timer is 10s it runs the setActive by moving onto next light
+    // const interval = setTimeout(() => {
+    //   setActiveLight((prev) => trafficLight[prev].next);
+    // }, trafficLight[activeLight].time * 1000);
+
+    //In terms of adding delay, we use interval because we need to run at every interval
+    const interval = setInterval(() => {
+      setLapsedTime((prev) => prev + 1);
+    }, 1000);
 
     return () => {
       console.log("this is clearing");
       clearInterval(interval);
+      setLapsedTime(0);
     };
   }, [activeLight, delay, trafficLight]);
 
+  useEffect(() => {
+    if (lapsedTime >= trafficLight[activeLight].time) {
+      setActiveLight((prev) => trafficLight[prev].next);
+    }
+  }, [lapsedTime]);
+
+  useEffect(() => {
+    setRemainingTime(trafficLight[activeLight].time + delay);
+    setLapsedTime(0);
+  }, [delay, trafficLight, activeLight]);
+
   const handleLight = (light) => {
     setActiveLight(light);
+    setDelay(0);
   };
 
   const handleDelay = (e, time) => {
     if (e.key === "Enter") {
-      setDelay(time);
+      setDelay((prevTime) => prevTime + time);
     }
   };
 
@@ -67,7 +87,6 @@ function App() {
       </div>
 
       <div className="time">
-        <h1> Increase the delay </h1>
         <input
           type="number"
           name="delay-timer"
