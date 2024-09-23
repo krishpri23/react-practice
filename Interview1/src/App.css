@@ -37,3 +37,8 @@
 input {
   padding: 10px;
 }
+
+.home {
+  display: flex;
+  flex-direction: column;
+}
