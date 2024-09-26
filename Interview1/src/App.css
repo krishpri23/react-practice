@@ -42,3 +42,22 @@ input {
   display: flex;
   flex-direction: column;
 }
+
+/* accordian */
+.accordian-home {
+  color: red;
+  width: 700px;
+  height: 100px;
+  margin: 30px;
+}
+.accordian {
+  background-color: aliceblue;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.details {
+  padding: 10px;
+  background-color: aliceblue;
+}
