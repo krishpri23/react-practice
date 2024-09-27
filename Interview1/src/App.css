@@ -61,3 +61,36 @@ input {
   padding: 10px;
   background-color: aliceblue;
 }
+
+/* filemanager */
+.manager-home {
+  display: flex;
+  flex-direction: column;
+}
+
+.folder {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: aliceblue;
+  color: darkblue;
+}
+
+.subfolder {
+  background-color: goldenrod;
+  color: black;
+  padding-left: 20px;
+
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.files {
+  background-color: bisque;
+  color: darkturquoise;
+  padding: 20px;
+}
