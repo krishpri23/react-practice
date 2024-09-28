@@ -3,15 +3,9 @@ import TicketInfo from "./TicketInfo";
 
 const TrelloBoard = () => {
   const [value, setValue] = useState("");
-  const categories = [
-    "Select a category",
-    "Backlog",
-    "In Development",
-    "Review",
-    "Done",
-  ];
 
   const [category, setCategory] = useState("");
+  const categories = ["Backlog", "In Development", "Review", "Done"];
 
   const [ticketInfo, setTicketInfo] = useState([]);
 
@@ -51,6 +45,7 @@ const TrelloBoard = () => {
 
       <form onSubmit={(e) => handleSubmit(e)} className="trello-form">
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option> Select a category </option>
           {categories.map((cat, i) => (
             <option key={i}> {cat}</option>
           ))}
