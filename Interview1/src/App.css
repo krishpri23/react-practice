@@ -94,3 +94,30 @@ input {
   color: darkturquoise;
   padding: 20px;
 }
+
+/* trello board */
+
+.trello-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.trello {
+  display: flex;
+  gap: 30px;
+}
+.board {
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  align-items: center;
+  width: 300px;
+  height: 500px;
+  color: #000;
+  overflow: auto;
+}
+
+li {
+  list-style: none;
+}
