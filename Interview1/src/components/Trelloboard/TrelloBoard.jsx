@@ -9,9 +9,7 @@ const TrelloBoard = () => {
 
   const [ticketInfo, setTicketInfo] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleAdd = (e) => {
     setTicketInfo((prev) => {
       // check if cat exists
       const categoryExists = prev.find((cat) => cat.cat === category);
@@ -36,6 +34,18 @@ const TrelloBoard = () => {
     setValue("");
   };
 
+  const handleRemove = () => {
+    setTicketInfo((prev) => {
+      const data = prev.find((ticket) => ticket.cat === category);
+
+      if (data) {
+        return prev.data.filter((data) => data !== value);
+      } else {
+        alert("no such value");
+      }
+    });
+  };
+
   console.log(ticketInfo, "added");
 
   return (
@@ -43,7 +53,7 @@ const TrelloBoard = () => {
       <h1> Trello board </h1>
       {ticketInfo.length >= 1 && <TicketInfo ticketInfo={ticketInfo} />}
 
-      <form onSubmit={(e) => handleSubmit(e)} className="trello-form">
+      <form className="trello-form" onSubmit={(e) => e.preventDefault()}>
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option> Select a category </option>
           {categories.map((cat, i) => (
@@ -56,7 +66,9 @@ const TrelloBoard = () => {
           onChange={(e) => setValue(e.target.value)}
         />
 
-        <button> Add ticket </button>
+        <button onClick={(e) => handleAdd(e)}> Add </button>
+        <button onClick={() => handleRemove()}>Remove </button>
+        <button>Edit</button>
       </form>
     </div>
   );
