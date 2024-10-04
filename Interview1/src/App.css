@@ -69,15 +69,32 @@ input {
   justify-content: center;
   align-items: flex-start;
 }
-
+.folder-root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .folder {
   padding-left: 20px;
+  color: black;
+}
+
+.folder-name {
+  padding-left: 20px;
+  background-color: gray;
+  padding: 0 10px;
+  color: black;
 }
 
 .files {
   padding-left: 20px;
+  background-color: aliceblue;
+  color: black;
+  padding: 10px;
 }
-
+p {
+  font-size: large;
+}
 /* trello board */
 
 .trello-form {
