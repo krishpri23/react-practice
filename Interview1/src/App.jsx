@@ -10,11 +10,11 @@ import TrelloBoard from "./components/Trelloboard/TrelloBoard";
 function App() {
   // return <TrafficLights />;
   // return <AccordianHome />;
-  return <FileManagerHome />;
+  // return <FileManagerHome />;
 
   // return <TrelloBoard />;
 
-  // return <Pagination />;
+  return <Pagination />;
 }
 
 export default App;
