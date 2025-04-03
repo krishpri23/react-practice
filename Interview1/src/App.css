@@ -122,13 +122,11 @@ li {
   list-style: none;
 }
 
-
 /* progress bar */
 .container-outer {
   border: 1px solid white;
   border-radius: 50px;
   overflow: hidden;
-
 }
 
 .inner {
@@ -136,4 +134,31 @@ li {
   color: #000;
   text-align: right;
   transition: 0.5s ease-in;
+}
+
+/* Todo */
+.todo {
+  background-color: aquamarine;
+  width: 90%;
+  height: 500px;
+  color: black;
+}
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: palegoldenrod;
+  color: #000;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  max-height: 300px;
+}
+
+/* file manager */
+.container {
+  text-align: left;
+  padding-left: 20px;
+}
+.add-folder {
+  padding: 10px;
 }

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import "./pagination.css";
+import { useEffect, useState } from 'react';
+import './pagination.css';
 
 const Pagination = () => {
   const [products, setProducts] = useState([]);
@@ -65,12 +65,12 @@ const Pagination = () => {
           <button onClick={() => setPage((prev) => prev - 1)}> Prev </button>
           {[...Array(totalPages)].map((_, i) => (
             <button
-              className={page === i + 1 ? "selected" : "index"}
+              className={page === i + 1 ? 'selected' : 'index'}
               key={i}
               onClick={() => handlePageHandler(i + 1)}
             >
-              {" "}
-              {i + 1}{" "}
+              {' '}
+              {i + 1}{' '}
             </button>
           ))}
           <button onClick={() => setPage((prev) => prev + 1)}> Next</button>

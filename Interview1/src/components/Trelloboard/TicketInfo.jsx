@@ -1,6 +1,6 @@
 const TicketInfo = ({ ticketInfo }) => {
-  console.log(ticketInfo, "added");
-  const categories = ["Backlog", "In Development", "Review", "Done"];
+  console.log(ticketInfo, 'added');
+  const categories = ['Backlog', 'In Development', 'Review', 'Done'];
 
   return (
     <div className="trello">

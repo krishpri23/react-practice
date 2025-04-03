@@ -1,11 +1,11 @@
-import { useState } from "react";
-import TicketInfo from "./TicketInfo";
+import { useState } from 'react';
+import TicketInfo from './TicketInfo';
 
 const TrelloBoard = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
-  const [category, setCategory] = useState("");
-  const categories = ["Backlog", "In Development", "Review", "Done"];
+  const [category, setCategory] = useState('');
+  const categories = ['Backlog', 'In Development', 'Review', 'Done'];
 
   const [ticketInfo, setTicketInfo] = useState([]);
 
@@ -31,7 +31,7 @@ const TrelloBoard = () => {
       }
     });
 
-    setValue("");
+    setValue('');
   };
 
   const handleRemove = () => {
@@ -41,12 +41,12 @@ const TrelloBoard = () => {
       if (data) {
         return prev.data.filter((data) => data !== value);
       } else {
-        alert("no such value");
+        alert('no such value');
       }
     });
   };
 
-  console.log(ticketInfo, "added");
+  console.log(ticketInfo, 'added');
 
   return (
     <div>

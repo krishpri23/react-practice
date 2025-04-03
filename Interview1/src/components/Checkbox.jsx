@@ -1,9 +1,9 @@
 // create a checkbox with the list of items and display X when checkbox is selected
 
-import { useState } from "react";
+import { useState } from 'react';
 
 const Checkbox = () => {
-  const arr = ["Play games", "Read a book", "Eat food"];
+  const arr = ['Play games', 'Read a book', 'Eat food'];
 
   const [newArr, setNewArr] = useState(arr);
   const [checkedItems, setCheckedItem] = useState(
@@ -27,7 +27,7 @@ const Checkbox = () => {
   return (
     <div className="home">
       {newArr.map((item, i) => (
-        <li key={i} style={{ listStyle: "none" }}>
+        <li key={i} style={{ listStyle: 'none' }}>
           <input
             type="checkbox"
             checked={checkedItems[item]}

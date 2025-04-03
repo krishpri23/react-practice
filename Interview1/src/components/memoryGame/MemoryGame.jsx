@@ -1,9 +1,5 @@
-
-
 const MemoryGame = () => {
-  return (
-    <div>MemoryGame</div>
-  )
-}
+  return <div>MemoryGame</div>;
+};
 
-export default MemoryGame
+export default MemoryGame;

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "public",
+    "id": 1,
+    "isFolder": true,
+    "children": [
+      {
+        "name": "images",
+        "id": 2,
+        "isFolder": false
+      }
+    ]
+  },
+  {
+    "name": "src",
+    "id": 3,
+    "isFolder": true,
+    "children": [
+      {
+        "name": "components",
+        "id": 4,
+        "isFolder": true,
+        "children": [
+          {
+            "name": "file.jsx",
+            "id": 5,
+            "isFolder": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "package.json",
+    "id": 5,
+    "isFolder": false
+  }
+]

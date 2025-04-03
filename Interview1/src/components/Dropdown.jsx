@@ -3,21 +3,21 @@
  *
  */
 
-import { useState } from "react";
+import { useState } from 'react';
 
 const Dropdown = () => {
   const countries = [
-    { name: "India", value: "IN", cities: ["Madurai", "Chennai"] },
-    { name: "USA", value: "US", cities: ["California", "Denver"] },
-    { name: "Canada", value: "CN", cities: ["Calgary", "Alberta"] },
+    { name: 'India', value: 'IN', cities: ['Madurai', 'Chennai'] },
+    { name: 'USA', value: 'US', cities: ['California', 'Denver'] },
+    { name: 'Canada', value: 'CN', cities: ['Calgary', 'Alberta'] },
   ];
 
-  const [selCountry, setSelCountry] = useState("");
-  const [selCity, setSelCity] = useState("");
+  const [selCountry, setSelCountry] = useState('');
+  const [selCity, setSelCity] = useState('');
 
   const selectedObj = countries.find((country) => country.name === selCountry);
-  console.log("sel country", selCountry);
-  console.log(selectedObj, "selected");
+  console.log('sel country', selCountry);
+  console.log(selectedObj, 'selected');
 
   return (
     <div className="home">

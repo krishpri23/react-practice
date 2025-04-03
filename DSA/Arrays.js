@@ -13,7 +13,7 @@ function secondLargest(arr) {
   const numSet = Array.from(new Set(arr));
   const sortedArr = numSet.sort((a, b) => b - a);
   if (sortedArr.length >= 2) {
-    console.log(sortedArr[1], "is the second largest number");
+    console.log(sortedArr[1], 'is the second largest number');
   } else return -1;
 }
 
@@ -51,7 +51,7 @@ function rotateArray(arr, k) {
   // k should be less than length of arr or else it wont work
   if (k > size) {
     k = k % size;
-    console.log("inside check");
+    console.log('inside check');
   }
 
   const rotated = nums.splice(size - k, size);
@@ -123,4 +123,4 @@ function removeDuplicate1(arr) {
   return arr.slice(0, i + 1);
 }
 
-console.log(removeDuplicate1(dupNums), "dup 2");
+console.log(removeDuplicate1(dupNums), 'dup 2');

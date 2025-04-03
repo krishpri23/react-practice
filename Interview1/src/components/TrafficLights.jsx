@@ -4,25 +4,25 @@
  ** when we increase time delay, we need to add on top of the current time not restart the timer of the light
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const TrafficLights = () => {
   const [trafficLight, setTrafficLight] = useState({
     red: {
       time: 5,
-      next: "yellow",
+      next: 'yellow',
     },
     yellow: {
       time: 2,
-      next: "green",
+      next: 'green',
     },
     green: {
       time: 5,
-      next: "red",
+      next: 'red',
     },
   });
 
-  const [activeLight, setActiveLight] = useState("red");
+  const [activeLight, setActiveLight] = useState('red');
   const [delay, setDelay] = useState(0);
   const [lapsedTime, setLapsedTime] = useState(0);
   const [remainingTime, setRemainingTime] = useState(0);
@@ -40,7 +40,7 @@ const TrafficLights = () => {
     }, 1000);
 
     return () => {
-      console.log("this is clearing");
+      console.log('this is clearing');
       clearInterval(interval);
       setLapsedTime(0);
     };
@@ -63,7 +63,7 @@ const TrafficLights = () => {
   };
 
   const handleDelay = (e, time) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       setDelay((prevTime) => prevTime + time);
     }
   };
@@ -73,14 +73,14 @@ const TrafficLights = () => {
       <h1> Traffic light </h1>
       <h2> {lapsedTime} </h2>
       <div className="user-input">
-        {" "}
-        <button name="red" onClick={() => handleLight("red")}>
+        {' '}
+        <button name="red" onClick={() => handleLight('red')}>
           Red
         </button>
-        <button name="yellow" onClick={() => handleLight("yellow")}>
+        <button name="yellow" onClick={() => handleLight('yellow')}>
           Yellow
         </button>
-        <button name="green" onClick={() => handleLight("green")}>
+        <button name="green" onClick={() => handleLight('green')}>
           Green
         </button>
       </div>
@@ -95,19 +95,19 @@ const TrafficLights = () => {
         />
       </div>
 
-      <p className={`${activeLight === "red" ? "light red" : "light default"}`}>
+      <p className={`${activeLight === 'red' ? 'light red' : 'light default'}`}>
         red
       </p>
       <p
         className={`${
-          activeLight === "yellow" ? "light yellow" : "light default"
+          activeLight === 'yellow' ? 'light yellow' : 'light default'
         }`}
       >
         yellow
       </p>
       <p
         className={`${
-          activeLight === "green" ? "light green" : "light default"
+          activeLight === 'green' ? 'light green' : 'light default'
         }`}
       >
         green

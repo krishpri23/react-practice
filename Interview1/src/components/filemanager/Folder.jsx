@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from 'react';
 
 const Folder = ({ explorer, handleInsertion }) => {
   const [expand, setExpand] = useState(false);
@@ -28,8 +28,8 @@ const Folder = ({ explorer, handleInsertion }) => {
       <div className="manager-home">
         <div className="folder-root">
           <p className="folder-name" onClick={() => setExpand(!expand)}>
-            {" "}
-            🗂️ {explorer.name}{" "}
+            {' '}
+            🗂️ {explorer.name}{' '}
           </p>
 
           <div className="add-buttons">
@@ -42,9 +42,9 @@ const Folder = ({ explorer, handleInsertion }) => {
           {showInput.visible && (
             <div className="input-controller">
               {showInput.isFolder ? (
-                <span style={{ paddingRight: "10px" }}> 🗂️</span>
+                <span style={{ paddingRight: '10px' }}> 🗂️</span>
               ) : (
-                <span style={{ paddingRight: "10px" }}> 📄</span>
+                <span style={{ paddingRight: '10px' }}> 📄</span>
               )}
               <input
                 type="text"

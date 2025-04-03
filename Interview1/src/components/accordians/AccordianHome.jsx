@@ -1,27 +1,27 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import Accordian from "./Accordian";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import Accordian from './Accordian';
 const AccordianHome = () => {
   const [accordian, setAccordian] = useState([
     {
       id: 1,
-      title: "Accordian 1",
+      title: 'Accordian 1',
       isOpen: false,
-      body: "Hello from accordian 1",
+      body: 'Hello from accordian 1',
       isChecked: false,
     },
     {
       id: 2,
-      title: "Accordian 2",
+      title: 'Accordian 2',
       isOpen: false,
-      body: "Hello from accordian 2",
+      body: 'Hello from accordian 2',
       isChecked: false,
     },
     {
       id: 3,
-      title: "Accordian 3",
+      title: 'Accordian 3',
       isOpen: false,
-      body: "Hello from accordian 3",
+      body: 'Hello from accordian 3',
       isChecked: false,
     },
   ]);
@@ -29,7 +29,7 @@ const AccordianHome = () => {
   const [allChecked, setAllChecked] = useState(false);
 
   useEffect(() => {
-    console.log(accordian, "acc");
+    console.log(accordian, 'acc');
     // Check if all checkboxes are checked whenever the accordian state changes
     const allChecked = accordian.every((item) => item.isChecked);
     setAllChecked(allChecked);
@@ -44,7 +44,7 @@ const AccordianHome = () => {
         };
       })
     );
-    console.log("acc array", accordian);
+    console.log('acc array', accordian);
   };
 
   const toggleAccordian = (id) => {
@@ -60,7 +60,7 @@ const AccordianHome = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log("form submitted");
+          console.log('form submitted');
         }}
       >
         {accordian?.map((acc) => (

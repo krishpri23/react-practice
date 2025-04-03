@@ -18,7 +18,7 @@ const Accordian = ({
           onChange={() => handleCheckBox(accordian.id)}
           // setAllChecked(accordian?.every((item) => item.isChecked));
         />
-        <p> {accordian.title} </p>{" "}
+        <p> {accordian.title} </p>{' '}
         <button onClick={() => toggleAccordian(accordian.id)}>V </button>
       </div>
       {accordian?.isOpen ? (
