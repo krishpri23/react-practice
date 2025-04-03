@@ -30,4 +30,12 @@
 - it is a tree structure and adding a node to a tree
 -
 - when I try to toggle 1st level folder it toggles 2nd level folder also. FIX: create an obj for expand and store the name of each json data and boolean val. {"public": true}
--
+
+## Autocomplete
+
+- Makes api call to show the list of results related to the input
+- caching, debouncing for complexity
+- Break into smaller problems
+- debouncing - whenever my inputVal changes, set a timeout for 3 secs, clear the timer if timer is < 3secs.
+
+- my approach was to call the api once and filter the data and display as suggestions

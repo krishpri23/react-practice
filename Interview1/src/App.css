@@ -162,3 +162,30 @@ li {
 .add-folder {
   padding: 10px;
 }
+
+/* autocomplete */
+.search-input {
+  width: 500px;
+}
+.matching-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 5px auto;
+  text-align: left;
+  max-width: 500px;
+  max-height: 500px;
+  overflow-y: scroll;
+  border: 1px solid greenyellow;
+  background-color: whitesmoke;
+  color: #000;
+  padding: 10px 0;
+}
+
+.matching-item {
+  padding: 5px 0px;
+}
+
+.matching-item:hover {
+  background-color: azure;
+}

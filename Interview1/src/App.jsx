@@ -1,5 +1,6 @@
 import './App.css';
-import FileManagerAkshay from './components/filemanager/FileManagerAkshay';
+import Autocomplete from './components/autocomplete/Autocomplete';
+// import FileManagerAkshay from './components/filemanager/FileManagerAkshay';
 // import OTP from "./components/otp/OTP";
 // import ProgressBar from "./components/ProgressBar/ProgressBar";
 // import Todo from "./components/Todo/Todo";
@@ -13,8 +14,8 @@ function App() {
       {/* <ProgressBar progress={90} /> */}
       {/* <Todo /> */}
       {/* <OTP count={otpCount} /> */}
-
-      <FileManagerAkshay />
+      {/* <FileManagerAkshay /> */}
+      <Autocomplete />
     </div>
   );
 }
