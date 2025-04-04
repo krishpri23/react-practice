@@ -46,8 +46,9 @@ export default function Autocomplete() {
     setInputVal(val);
     setShowContainer(val);
   };
-  const handleSuggestionClick = (name) => {
-    setInputVal(name);
+  const handleSuggestionClick = (e) => {
+    const clickedName = e.target.textContent;
+    setInputVal(clickedName);
     setShowContainer(false);
   };
 
@@ -84,14 +85,17 @@ export default function Autocomplete() {
       />
 
       {showContainer && inputVal && (
-        <div ref={containerRef} className="matching-container">
+        <div
+          ref={containerRef}
+          className="matching-container"
+          onClick={(e) => handleSuggestionClick(e)}
+        >
           {data.length > 0 ? (
             data?.map((item) => (
               <span
                 className="matching-item"
                 key={item.id}
                 onMouseDown={handleMouseDown}
-                onClick={() => handleSuggestionClick(item.name)}
               >
                 {' '}
                 {item.name}{' '}

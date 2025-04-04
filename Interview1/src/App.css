@@ -189,3 +189,11 @@ li {
 .matching-item:hover {
   background-color: azure;
 }
+
+/* Modal */
+.modal-overlay {
+  width: 500px;
+  height: 300px;
+  margin: auto;
+  background-color: antiquewhite;
+}

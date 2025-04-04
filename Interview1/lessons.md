@@ -43,3 +43,5 @@
 - In such case, useRef comes into handy.
 
 - onBlur, onclick => onBlur is called when input loses the focus only then onClick is called. To stop it, we are using a workaround by adding onMouseDown and preventing the default behavior. onMouseDown event is triggered before onBlur, and that's why e.preventDefault() inside onMouseDown can prevent the onBlur event from firing prematurely.
+
+- To improve performance, we can attach the event listeners to the parent instead of child <span>. (Event delegation)
