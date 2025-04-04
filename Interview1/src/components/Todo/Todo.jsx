@@ -3,8 +3,9 @@
 - Scroll to the latest task added in the container by attaching "ref" to the last added task div
 
 */
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { ThemeContext } from './TodoContext';
 
 export default function Todo() {
   const [show, setShow] = useState(false);
@@ -12,7 +13,8 @@ export default function Todo() {
   const [description, setDescription] = useState('');
   const [taskData, setTaskData] = useState([]);
   const lastTaskRef = useRef(null);
-
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  console.log(theme, 'log');
   useEffect(() => {
     if (lastTaskRef.current) {
       lastTaskRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -39,18 +41,23 @@ export default function Todo() {
   };
 
   return (
-    <div className="App">
+    <div className={`main-todo ${theme}`}>
       <h1> Todo App </h1>
-      <div className="todo">
+      <div className={`todo ${theme}`}>
+        <button className={`theme-btn ${theme}`} onClick={toggleTheme}>
+          {' '}
+          Toggle{' '}
+        </button>
         <button
           type="button"
+          className={`todo-btn ${theme}`}
           onClick={handleAddTask}
           style={{ display: show ? 'none' : 'block' }}
         >
           Add Task
         </button>
         <form
-          className="form-container"
+          className={`form-container ${theme}`}
           style={{ display: show ? 'flex' : 'none' }}
         >
           <label htmlFor="title-input">Title</label>
@@ -70,18 +77,23 @@ export default function Todo() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <button type="submit" onClick={handleSubmit}>
+          <button
+            className={`todo-btn ${theme}`}
+            type="submit"
+            onClick={handleSubmit}
+          >
             {' '}
             Add task{' '}
           </button>
         </form>
 
         {taskData.length > 0 && (
-          <div className="tasks-container">
+          <div className={`tasks-container ${theme}`}>
             {taskData.map((item, index) => {
               console.log(item, 'inside');
               return (
                 <div
+                  style={{ borderBottom: '1px solid whitesmoke' }}
                   key={item.id}
                   ref={index === taskData.length - 1 ? lastTaskRef : null}
                 >
