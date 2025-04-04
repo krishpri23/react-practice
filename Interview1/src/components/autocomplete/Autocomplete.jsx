@@ -1,5 +1,6 @@
 /** Autocomplete search bar */
 
+import { useRef } from 'react';
 import { useEffect, useState } from 'react';
 
 export default function Autocomplete() {
@@ -7,6 +8,8 @@ export default function Autocomplete() {
   const [inputVal, setInputVal] = useState('');
   const [showContainer, setShowContainer] = useState(false);
   const [cache, setCache] = useState(new Map());
+  const inputRef = useRef(null);
+  const containerRef = useRef(null);
 
   const fetchData = async () => {
     // has cache
@@ -48,8 +51,23 @@ export default function Autocomplete() {
     setShowContainer(false);
   };
 
-  const handleBlur = () => {
+  const handleBlur = (e) => {
+    console.log(e, 'blyr gabdke');
+    // if focus moving to suggestions container,
+    if (
+      containerRef.current &&
+      containerRef.current.contains(e.relatedTarget)
+    ) {
+      console.log(e.relatedTarget, 'related target');
+      return;
+    }
     setShowContainer(false);
+  };
+
+  //* this will usually trigger an onblur, but we are negating it
+
+  const handleMouseDown = (e) => {
+    e.preventDefault();
   };
   return (
     <div>
@@ -57,20 +75,22 @@ export default function Autocomplete() {
       <input
         type="text"
         name="search"
+        ref={inputRef}
         className="search-input"
         value={inputVal}
-        onBlur={handleBlur}
+        onBlur={(e) => handleBlur(e)}
         onChange={(e) => handleChangeInput(e.target.value)}
         onFocus={() => setShowContainer(true)}
       />
 
       {showContainer && inputVal && (
-        <div className="matching-container">
+        <div ref={containerRef} className="matching-container">
           {data.length > 0 ? (
             data?.map((item) => (
               <span
                 className="matching-item"
                 key={item.id}
+                onMouseDown={handleMouseDown}
                 onClick={() => handleSuggestionClick(item.name)}
               >
                 {' '}

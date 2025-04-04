@@ -39,3 +39,7 @@
 - debouncing - whenever my inputVal changes, set a timeout for 3 secs, clear the timer if timer is < 3secs.
 
 - my approach was to call the api once and filter the data and display as suggestions
+- onBlur and clicking from the suggestions are conflicting. looks important to find a fix
+- In such case, useRef comes into handy.
+
+- onBlur, onclick => onBlur is called when input loses the focus only then onClick is called. To stop it, we are using a workaround by adding onMouseDown and preventing the default behavior. onMouseDown event is triggered before onBlur, and that's why e.preventDefault() inside onMouseDown can prevent the onBlur event from firing prematurely.
